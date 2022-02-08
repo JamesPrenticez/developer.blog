@@ -3,7 +3,7 @@ export interface Post {
   title: string;
   slug: string;
   content: string;
-  image: string;
+  img: string;
   published: boolean;
   author: string;
   authorId: in;

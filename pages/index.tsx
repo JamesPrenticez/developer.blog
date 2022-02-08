@@ -24,7 +24,6 @@ function Home(props: Props) {
         <Posts posts={props.posts} />
         <Footer/>
       </div>
-
     </>
   )
 }
@@ -36,10 +35,11 @@ export const getServerSideProps = async () => {
     select: {
       title: true,
       content: true,
-      image: true,
+      img: true,
       author: {
         select: {
             name: true,
+            img: true,
           },
       }
     },
