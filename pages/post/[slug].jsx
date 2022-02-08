@@ -1,7 +1,7 @@
 import prisma from '../../lib/prisma';
 import { useRouter } from 'next/router'
 
-function Post({post}) {
+function PostId({post}) {
   const router = useRouter()
 
   return (
@@ -31,16 +31,19 @@ function Post({post}) {
           </div>
       </div>
 
-     </div>
+    </div>
   );
 }
 
-export default Post
+export default PostId
 
 export async function getServerSideProps({params}){
   const post = await prisma.post.findUnique({
+    // where: {
+    //   id: Number(params?.id) || -1,
+    // },
     where: {
-      id: Number(params?.id) || -1,
+      slug: params?.slug,
     },
   })
 

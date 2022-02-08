@@ -1,17 +1,17 @@
 import React from 'react';
-import {useRouter} from "next/router"
+import Link from "next/Link"
 
 function Posts({posts}) {
-  const router = useRouter()
   return (
     <>
     {posts.map((post, index) => (
       //Post Display Card
-      <div
+      <Link
         className="hover:cursor-pointer hover:bg-white"
-        key={index}
-        onClick={() => router.push(`/post/${post.id}`)} 
+        key={post.id}
+        href={`/post/${post.slug}`}
       >
+      <div>
         <p className="">{post.id}</p>
         <p className="">{post.title}</p>
         <p className="">{post.content}</p>
@@ -23,6 +23,8 @@ function Posts({posts}) {
           />
         </div>
       </div>
+      </Link>
+ 
     ))}
     </>
   )
