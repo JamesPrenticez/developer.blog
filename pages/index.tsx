@@ -4,8 +4,13 @@ import Header from '../components/Header'
 import Banner from '../components/Banner'
 import Posts from '../components/Posts'
 import Footer from '../components/Footer'
+import { Post } from '../typings';
 
-function Home({posts}) {
+interface Props {
+  posts: Post;
+}
+
+function Home(props: Props) {
   return (
     <>
       <Head>
@@ -16,7 +21,7 @@ function Home({posts}) {
       <div className='max-w-7xl mx-auto'>
         <Header/>      
         <Banner/>
-        <Posts posts={posts} />
+        <Posts posts={props.posts} />
         <Footer/>
       </div>
 
@@ -26,7 +31,7 @@ function Home({posts}) {
 
 export default Home
 
-export const getServerSideProps = async ctx  => {
+export const getServerSideProps = async () => {
   const posts = await prisma.post.findMany()
   return {props: {posts}}
 }

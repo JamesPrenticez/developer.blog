@@ -1,3 +1,8 @@
+# Medium Clone
+
+## Frontend Design
+https://www.youtube.com/watch?v=I2dcpatq54o&t=3822s
+
 ## Prisma with Sqlite3
 https://vercel.com/guides/nextjs-prisma-postgres
 

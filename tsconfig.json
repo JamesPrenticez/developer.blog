@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/post.jsx", "components/Banner.jsx", "components/Footer.jsx", "components/Header.jsx", "lib/prisma.js", "pages/_app.jsx", "pages/_document.jsx", "pages/index.jsx", "components/Posts.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/post.jsx", "components/Banner.jsx", "components/Footer.jsx", "components/Header.jsx", "lib/prisma.js", "pages/_app.jsx", "pages/_document.jsx", "pages/index.tsx", "components/Posts.jsx"],
   "exclude": ["node_modules"]
 }

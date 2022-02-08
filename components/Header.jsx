@@ -1,8 +1,8 @@
-import Link from "next//Link"
+import Link from "next/Link"
 
 function Header() {
   return (
-    <header className="flex justify-between p-5 mx-auto bg-white">
+    <header className="flex justify-between p-5 mx-auto bg-white h-20">
       <div className="flex items-center space-x-5">
         <Link href="/">
           <img
@@ -13,7 +13,7 @@ function Header() {
         <div className="hidden md:inline-flex items-center space-x-5">
           <h3>About</h3>
           <h3>Contact</h3>
-          <h3 className="text-white bg-green-600 px-4 py-1 rounded-full">Follow</h3>
+          <h3 className="text-white bg-green-600 hover:bg-green-700 hover:cursor-pointer px-4 py-1 rounded-full">Follow</h3>
         </div>
       </div>
 
