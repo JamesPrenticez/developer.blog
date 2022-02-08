@@ -32,6 +32,17 @@ function Home(props: Props) {
 export default Home
 
 export const getServerSideProps = async () => {
-  const posts = await prisma.post.findMany()
+  const posts = await prisma.post.findMany({
+    select: {
+      title: true,
+      content: true,
+      image: true,
+      author: {
+        select: {
+            name: true,
+          },
+      }
+    },
+  })
   return {props: {posts}}
 }

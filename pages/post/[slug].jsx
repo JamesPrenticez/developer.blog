@@ -22,7 +22,7 @@ function PostId({post}) {
         <p className="">{post.id}</p>
           <p className="">{post.title}</p>
           <p className="">{post.content}</p>
-          <p className="">{post.author}</p>
+          <p className="">{post.author.name}</p>
           <div className="">
             <img 
               className="h-12 w-12"
@@ -39,14 +39,10 @@ export default PostId
 
 export async function getServerSideProps({params}){
   const post = await prisma.post.findUnique({
-    // where: {
-    //   id: Number(params?.id) || -1,
-    // },
     where: {
-      slug: params?.slug,
+      slug: params?.slug
     },
   })
-
   return {
     props: {post}
   }

@@ -2,30 +2,25 @@ import React from 'react';
 import Link from "next/Link"
 
 function Posts({posts}) {
+  console.log(posts)
   return (
     <>
-    {posts.map((post, index) => (
-      //Post Display Card
-      <Link
-        className="hover:cursor-pointer hover:bg-white"
-        key={post.id}
-        href={`/post/${post.slug}`}
-      >
-      <div>
-        <p className="">{post.id}</p>
-        <p className="">{post.title}</p>
-        <p className="">{post.content}</p>
-        <p className="">{post.author}</p>
-        <div className="">
-          <img 
-            className="h-12 w-12"
-            src={post.image} 
-          />
-        </div>
-      </div>
-      </Link>
- 
-    ))}
+      {posts.map((post, index) => (
+        //Post Display Card
+        <Link key={index} href={`/post/${post.slug}`}>
+          <div>
+            <img src={post.image}/>
+            <div>
+              <div>
+                <p>{post.title}</p>
+                <p>By: {post.author.name}</p>
+                <p>{post.content}</p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </Link>
+      ))}
     </>
   )
 }
