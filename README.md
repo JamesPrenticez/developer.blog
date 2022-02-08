@@ -1,3 +1,10 @@
+## Prisma with Sqlite3
+https://vercel.com/guides/nextjs-prisma-postgres
+
+``` npx prisma generate ``` This every time you update schema
+``` npx prisma db push ```  Then this
+``` npx prisma studio ```   Then you can do this
+
 Emmit:
 div>h3*3 = 
      <div>
