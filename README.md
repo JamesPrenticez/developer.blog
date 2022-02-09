@@ -11,7 +11,7 @@ https://vercel.com/guides/nextjs-prisma-postgres
 ``` npx prisma studio ```   Then you can do this
 
 ## Features
-- ISR (Incremental Static Regeneration) - Dynamic Pages (AKA each blog post) is pre-built and cached. Meaning that things a super fast!
+- ISR (Incremental Static Regeneration) using getStaticPath & getStaticProps - Dynamic Pages (AKA each blog post) is pre-built and cached. Meaning that things a super fast!
 
 
 ## Pro Tips

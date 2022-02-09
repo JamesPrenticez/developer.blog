@@ -33,6 +33,7 @@ export default Home
 export const getServerSideProps = async () => {
   const posts = await prisma.post.findMany({
     select: {
+      slug: true,
       title: true,
       content: true,
       img: true,

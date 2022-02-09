@@ -1,9 +1,8 @@
 import prisma from '../../lib/prisma';
 import { useRouter } from 'next/router'
 
-function PostId({post}) {
+function Post({post}) {
   const router = useRouter()
-
   return (
     <div className="max-w-7xl mx-auto">
       {/* Sudo Nav*/}
@@ -18,29 +17,60 @@ function PostId({post}) {
         </div>
       </div>
 
-      <div className="bg-white mt-5">
-        <p className="">{post.id}</p>
+      <main className="bg-white mt-5">
           <p className="">{post.title}</p>
           <p className="">{post.content}</p>
           <p className="">{post.author.name}</p>
           <div className="">
             <img 
               className="h-12 w-12"
-              src={post.image} 
+              src={post.img} 
             />
           </div>
-      </div>
+      </main>
 
     </div>
   );
 }
 
-export default PostId
+export default Post
 
-export async function getServerSideProps({params}){
-  const post = await prisma.post.findUnique({
+export const getStaticPaths = async () => {
+  const query = await prisma.post.findMany({
+    select:{
+      slug: true
+    }
+  })
+  //console.log(query)
+  
+  const paths = query.map(post => ({
+    params: {
+      slug: post.slug
+    }
+  }))
+  //console.log(paths)
+
+  return {
+    paths,
+    fallback: 'blocking'
+  }
+}
+
+export const getStaticProps = async ({params}) => {
+    const post = await prisma.post.findUnique({
     where: {
       slug: params?.slug
+    },
+    select: {
+      title: true,
+      content: true,
+      img: true,
+      author: {
+        select: {
+            name: true,
+            img: true,
+          },
+      }
     },
   })
   return {

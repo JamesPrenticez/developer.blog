@@ -2,7 +2,6 @@ import React from 'react';
 import Link from "next/Link"
 
 function Posts({posts}) {
-  console.log(posts)
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:pd-6'>
       {posts.map((post, index) => (
