@@ -6,6 +6,8 @@ CREATE TABLE "Post" (
     "slug" TEXT,
     "content" TEXT,
     "img" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
     "published" BOOLEAN NOT NULL DEFAULT false,
     "authorId" INTEGER,
     CONSTRAINT "Post_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "users" ("id") ON DELETE SET NULL ON UPDATE CASCADE
