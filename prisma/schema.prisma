@@ -10,6 +10,7 @@ generator client {
 model Post {
   id          Int     @default(autoincrement()) @id
   title       String
+  description String
   slug        String? @unique
   content     String?
   img         String?

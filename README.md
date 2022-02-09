@@ -8,7 +8,13 @@ https://vercel.com/guides/nextjs-prisma-postgres
 
 ``` npx prisma generate ``` This every time you update schema
 ``` npx prisma db push ```  Then this
-``` npx prisma studio ```   Then you can do this
+``` npx prisma studio ```   Then you can do this\
+
+#### Mirgations/Seeds
+``` npx prisma migrate dev --name myMigrationName ```
+``` npx prisma migrate reset ``` Do this to reset the entire DB
+``` node prisma/seeds/clean.js ``` 
+``` npx prisma db seed ``` 
 
 ## Features
 - ISR (Incremental Static Regeneration) using getStaticPath & getStaticProps - Dynamic Pages (AKA each blog post) is pre-built and cached. Meaning that things a super fast!

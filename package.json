@@ -1,4 +1,9 @@
 {
+  "name": "medium_clone",
+  "version": "0.0.1",
+  "prisma": {
+    "seed": "node prisma/seeds/all.js"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",

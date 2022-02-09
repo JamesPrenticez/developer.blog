@@ -1,36 +1,26 @@
 import prisma from '../../lib/prisma';
-import { useRouter } from 'next/router'
+import Header from '../../components/Header'
 
 function Post({post}) {
-  const router = useRouter()
   return (
-    <div className="max-w-7xl mx-auto">
-      {/* Sudo Nav*/}
-      <div className="flex justify-between p-5 mx-auto bg-white h-20">
-        <div className="flex items-center space-x-5">
-          <button
-            onClick={() => router.push("/")}
-            className="text-white bg-green-600 px-4 py-1 rounded-full hover:cursor-pointer hover:bg-green-700"
-          >
-            BACK
-          </button>
-        </div>
-      </div>
+      <main>
+        <Header />
+        
+        {/* Main Image */}
+        <img 
+          className="w-full h-40 object-cover"
+          src={`../.${post.img}`}
+          // src='../../posts/linear.png'
+          />
 
-      <main className="bg-white mt-5">
-          <p className="">{post.title}</p>
-          <p className="">{post.content}</p>
-          <p className="">{post.author.name}</p>
-          <div className="">
-            <img 
-              className="h-12 w-12"
-              src={post.img} 
-            />
-          </div>
+        {/* Main Image */}
+        <article className='max-w-3xl mx-auto p-5'>
+          <h1 className='text-3xl mt-10 mb-3'>{post.title}</h1>
+          <h2 className='text-xl font-light text-gray-500 mb-2'>{post.description}</h2>
+        </article>
+
       </main>
-
-    </div>
-  );
+  )
 }
 
 export default Post
