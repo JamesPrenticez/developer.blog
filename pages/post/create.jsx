@@ -2,17 +2,40 @@ import React, { useState } from 'react';
 import Router from 'next/router';
 import Header from '../../components/Header'
 
+
+import dynamic from "next/dynamic"
+import { EditorState } from "draft-js";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css"; //toolbar
+import { convertToRaw, convertFromRaw } from "draft-js";
+
+  const Editor = dynamic(() => import("react-draft-wysiwyg").then((module) => module.Editor),
+  {
+    ssr: false,
+  }
+)
+
 function Create() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [slug, setSlug] = useState('');
+  
+  const [editorState, setEditorState] = useState(EditorState.createEmpty())
   const [content, setContent] = useState('');
+
+
+
+
 
   const generateSlug = (Text) => {
     let slug = Text.toLowerCase()
                .replace(/ /g, '-')
                .replace(/[^\w-]+/g, '');
     setSlug(slug)
+  }
+
+  const onEditorStateChange = (editorState) => {
+    setEditorState(editorState)
+    setContent(convertToRaw(editorState.getCurrentContent()))
   }
 
   const submitData = async (e) => {
@@ -29,6 +52,8 @@ function Create() {
       console.error(error);
     }
   }
+
+  console.log(content)
 
   return (
     <main className='max-w-7xl mx-auto'>
@@ -81,6 +106,14 @@ function Create() {
             value={content}
           /> */}
 
+          <div className="bg-[#F8F9FA] min-h-screen pb-16">
+            <Editor
+              editorState={editorState}
+              onEditorStateChange={onEditorStateChange} 
+              toolbarClassName="flex sticky top-0 z-50 !justify-center mx-auto"
+              editorClassName="mt-6 bg-white shadow-lg w-full !overflow-hidden mx-auto mb-12 p-24 border"
+            />
+          </div>
 
           <div className='w-full flex space-x-2'>
             <button 
@@ -91,7 +124,7 @@ function Create() {
               Discard
             </button>
              <button 
-              disabled={!content || !title}
+              // disabled={!content || !title}
               className="bg-green-600 p-2 text-white rounded-md hover:cursor-pointer hover:bg-green-700 disabled:cursor-not-allowed"
               type="submit"
               value="Create"
