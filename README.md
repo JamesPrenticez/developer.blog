@@ -28,6 +28,8 @@ https://vercel.com/guides/nextjs-prisma-postgres
   "plugins": ["superjson-next"]
 }
 ```
+## Rich Text Editor
+[https://www.npmjs.com/package/react-draft-wysiwyg]
 
 ## Features
 - ISR (Incremental Static Regeneration) using getStaticPath & getStaticProps - Dynamic Pages (AKA each blog post) is pre-built and cached. Meaning that things a super fast!

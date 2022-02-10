@@ -6,6 +6,8 @@ import Posts from '../components/Posts'
 import Footer from '../components/Footer'
 import { Post } from '../typings';
 
+// import TextEditor from '../components/TextEditor'
+
 interface Props {
   posts: Post;
 }
@@ -23,6 +25,7 @@ function Home(props: Props) {
         <Banner/>
         <Posts posts={props.posts} />
         <Footer/>
+        {/* <TextEditor /> */}
       </div>
     </>
   )

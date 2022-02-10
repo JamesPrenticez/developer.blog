@@ -11,15 +11,23 @@ function Header() {
            alt="" />
         </Link>
         <div className="hidden md:inline-flex items-center space-x-5">
-          <h3>About</h3>
-          <h3>Contact</h3>
-          <h3 className="text-white bg-green-600 hover:bg-green-700 hover:cursor-pointer px-4 py-1 rounded-full">Follow</h3>
+          <Link href="/">
+            <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">About</h3>
+          </Link>
+          <Link href="/">
+            <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Contact Us</h3>
+          </Link>
         </div>
       </div>
 
       <div className="flex items-center space-x-5 text-green-600">
-        <h3>Sign In</h3>
-        <h3 className="border border-green-600 px-4 py-1 rounded-full">Get Started</h3>
+          <Link href="/post/create">
+            <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Create Post</h3>
+          </Link>
+          <Link href="/post/draft">
+            <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Drafts</h3>
+          </Link>
+        <h3 className="hover:cursor-pointer border border-green-600  hover:text-white hover:bg-green-600 px-4 py-1 rounded-full mt-2">Sign In</h3>
       </div>
 
     </header>
