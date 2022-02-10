@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Router from 'next/router';
 import Header from '../../components/Header'
 
-
 import dynamic from "next/dynamic"
 import { EditorState } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css"; //toolbar
-import { convertToRaw, convertFromRaw } from "draft-js";
+import { convertToRaw } from "draft-js";
 
   const Editor = dynamic(() => import("react-draft-wysiwyg").then((module) => module.Editor),
   {
@@ -22,10 +21,6 @@ function Create() {
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
   const [content, setContent] = useState('');
 
-
-
-
-
   const generateSlug = (Text) => {
     let slug = Text.toLowerCase()
                .replace(/ /g, '-')
@@ -35,13 +30,13 @@ function Create() {
 
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState)
-    setContent(convertToRaw(editorState.getCurrentContent()))
+    setContent(JSON.stringify(convertToRaw(editorState.getCurrentContent())))
   }
 
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const body = { title, content, description };
+      const body = { title, content, description, slug };
       await fetch('/api/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -53,12 +48,10 @@ function Create() {
     }
   }
 
-  console.log(content)
-
   return (
     <main className='max-w-7xl mx-auto'>
       <Header />
-      <div className='bg-green-50 flex justify-center items-center p-3 '>
+      <div className='flex justify-center items-center p-3 '>
         <form 
           onSubmit={submitData}
           className="w-4/6 space-y-1"
@@ -84,7 +77,7 @@ function Create() {
             <input
               autoFocus
               className='p-2 border rounded-sm inline flex-grow'
-              onChange={(e) => setSlug(e.target.value)}
+              onChange={() => setSlug(e.target.value)}
               placeholder="Slug"
               type="text"
               value={slug}
@@ -106,12 +99,12 @@ function Create() {
             value={content}
           /> */}
 
-          <div className="bg-[#F8F9FA] min-h-screen pb-16">
+          <div className="bg-[#F8F9FA]">
             <Editor
               editorState={editorState}
               onEditorStateChange={onEditorStateChange} 
               toolbarClassName="flex sticky top-0 z-50 !justify-center mx-auto"
-              editorClassName="mt-6 bg-white shadow-lg w-full !overflow-hidden mx-auto mb-12 p-24 border"
+              editorClassName="my-6 bg-white shadow-lg w-full !overflow-hidden mx-auto p-12 border"
             />
           </div>
 

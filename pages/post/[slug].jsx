@@ -1,5 +1,6 @@
 import prisma from '../../lib/prisma';
 import Header from '../../components/Header'
+// import { convertFromRaw } from "draft-js";
 
 function Post({post}) {
   return (
@@ -26,6 +27,8 @@ function Post({post}) {
               Blog post by <span className='text-green-600'>{post.author.name}</span> - 
               Published at: {post.createdAt.toLocaleString()}</p>
           </div>
+
+
         </article>
 
       </main>

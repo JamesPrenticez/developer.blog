@@ -2,7 +2,7 @@ import Link from "next/Link"
 
 function Header() {
   return (
-    <header className="flex justify-between p-5 mx-auto bg-white h-20">
+    <header className="flex justify-between p-5 mx-auto bg-gray-50 h-20">
       <div className="flex items-center space-x-5">
         <Link href="/">
           <img
