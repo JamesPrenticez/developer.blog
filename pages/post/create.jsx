@@ -16,6 +16,7 @@ import { convertToRaw } from "draft-js";
 function Create() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [img, setImageURL] = useState('');
   const [slug, setSlug] = useState('');
   
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
@@ -36,7 +37,7 @@ function Create() {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const body = { title, content, description, slug };
+      const body = { title, content, description, img, slug };
       await fetch('/api/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -47,6 +48,8 @@ function Create() {
       console.error(error);
     }
   }
+
+  console.log(typeof(content))
 
   return (
     <main className='max-w-7xl mx-auto'>
@@ -64,23 +67,17 @@ function Create() {
             placeholder="Title"
             type="text"
             value={title}
-          />
-          <input
-            autoFocus
-            className='w-full p-2 border rounded-sm'
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Description"
-            type="text"
-            value={description}
+            required
           />
           <div className='flex w-full'>
             <input
               autoFocus
               className='p-2 border rounded-sm inline flex-grow'
-              onChange={() => setSlug(e.target.value)}
+              onChange={(e) => setSlug(e.target.value)}
               placeholder="Slug"
               type="text"
               value={slug}
+              required
             />
             <input 
               type='button'
@@ -89,7 +86,31 @@ function Create() {
               value="Generate Slug"
             />
           </div>
-
+          <input
+            autoFocus
+            className='w-full p-2 border rounded-sm'
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Description"
+            type="text"
+            value={description}
+            required
+          />
+          <input
+            autoFocus
+            className='w-full p-2 border rounded-sm'
+            onChange={(e) => setImageURL(e.target.value)}
+            placeholder="Image URL"
+            type="text"
+            value={img}
+            required
+          />
+          <div className='group cursor-pointer rounded-sm border overflow-hidden'>
+            <img 
+              className={`h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out  bg-white ${img.length > 0 ? '' : 'opacity-50'} `}
+              src={img.length > 0 ? img : '../default-image.jpg'} 
+              alt="" 
+            />
+          </div>
           {/* <textarea
             cols={50}
             className='w-full p-2 border rounded-sm'
@@ -104,7 +125,9 @@ function Create() {
               editorState={editorState}
               onEditorStateChange={onEditorStateChange} 
               toolbarClassName="flex sticky top-0 z-50 !justify-center mx-auto"
-              editorClassName="my-6 bg-white shadow-lg w-full !overflow-hidden mx-auto p-12 border"
+              editorClassName="mt-2 mb-6 bg-white shadow-lg w-full !overflow-hidden mx-auto p-6 border"
+              placeholder="Start writing your blog post..."
+              required
             />
           </div>
 
@@ -117,7 +140,7 @@ function Create() {
               Discard
             </button>
              <button 
-              // disabled={!content || !title}
+              // disabled={!content || !slug || !img || !description || !title}
               className="bg-green-600 p-2 text-white rounded-md hover:cursor-pointer hover:bg-green-700 disabled:cursor-not-allowed"
               type="submit"
               value="Create"

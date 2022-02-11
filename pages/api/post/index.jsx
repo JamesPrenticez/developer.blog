@@ -5,13 +5,14 @@ import prisma from '../../../lib/prisma';
 // Required fields in body: title
 // Optional fields in body: content
 export default async function createDraft(req, res) {
-  const { title, description, slug, content } = req.body;
+  const { title, description, img, slug, content } = req.body;
 
   // const session = await getSession({ req });
   const result = await prisma.post.create({
     data: {
       title: title,
       description: description,
+      img: img,
       slug: slug,
       content: content,
       author: { connect: { email: 'jamesprenticez@gmail.com' } },
@@ -19,4 +20,5 @@ export default async function createDraft(req, res) {
     },
   });
   res.json(result);
+  console.log(result)
 }

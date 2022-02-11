@@ -1,6 +1,24 @@
 import prisma from '../../lib/prisma';
 import Header from '../../components/Header'
-// import { convertFromRaw } from "draft-js";
+import { convertFromRaw } from "draft-js";
+import { stateToHTML } from 'draft-js-export-html';
+//https://www.npmjs.com/package/draft-js-export-html
+
+let options = {
+  inlineStyleFn: (styles) => {
+    let key = 'color-';
+    let color = styles.filter((value) => value.startsWith(key)).first();
+ 
+    if (color) {
+      return {
+        element: 'span',
+        style: {
+          color: color.replace(key, ''),
+        },
+      };
+    }
+  },
+};
 
 function Post({post}) {
   return (
@@ -10,7 +28,7 @@ function Post({post}) {
         {/* Main Image */}
         <img 
           className="w-full h-40 object-cover"
-          src={`../../${post.img}`}
+          src={post.img}
         />
 
         {/* Main Image */}
@@ -20,12 +38,20 @@ function Post({post}) {
           <div className='flex items-center space-x-2'>
             <img
               className='h-10 w-10 rounded-full' 
-              src={`../../${post.author.img}`}
+              src={post.author.img}
               alt=""
             />
             <p className='font-extralight text-sm'>
               Blog post by <span className='text-green-600'>{post.author.name}</span> - 
               Published at: {post.createdAt.toLocaleString()}</p>
+          </div>
+
+          <div>
+          <section
+                className="my-6"
+                dangerouslySetInnerHTML={{ __html: stateToHTML(convertFromRaw(JSON.parse(post.content)), options) }}
+          />
+            
           </div>
 
 

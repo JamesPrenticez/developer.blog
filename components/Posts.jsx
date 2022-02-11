@@ -10,7 +10,7 @@ function Posts({posts}) {
           <div className='group cursor-pointer rounded-lg border overflow-hidden'>
             <img 
               className='h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out'
-              src={`../${post.img}`}
+              src={post.img}
             />
             <div className='flex justify-between p-5 bg-white'>
               <div>
