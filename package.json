@@ -19,7 +19,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-draft-wysiwyg": "^1.14.7",
-    "react-portable-text": "^0.4.3",
     "superjson": "^1.8.0"
   },
   "devDependencies": {

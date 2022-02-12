@@ -3,28 +3,30 @@ import Header from '../../components/Header'
 import { convertFromRaw } from "draft-js";
 import { stateToHTML } from 'draft-js-export-html';
 //https://www.npmjs.com/package/draft-js-export-html
-import PortableText from "react-portable-text"
+
+
+// let options = {
+//   inlineStyleFn: (styles) => {
+//     let key = 'color-';
+//     let color = styles.filter((value) => value.startsWith(key)).first();
+ 
+//     if (color) {
+//       return {
+//         element: 'span',
+//         style: {
+//           color: color.replace(key, ''),
+//         },
+//       };
+//     }
+//   },
+// }
 
 let options = {
-  inlineStyleFn: (styles) => {
-    let key = 'color-';
-    let color = styles.filter((value) => value.startsWith(key)).first();
- 
-    if (color) {
-      return {
-        element: 'span',
-        style: {
-          color: color.replace(key, ''),
-        },
-      };
-    }
+  inlineStyles: {
+    BOLD: {className: 'font-bold'},
+    ITALIC: {className: 'italic'},
   },
-}
-
-// serializers={{
-//   h1: (props) => <h1 style={{ color: "red" }} {...props} />,
-//   li: ({ children }) => <li className="special-list-item">{children}</li>,
-// }}
+};
 
 function Post({post}) {
   return (
