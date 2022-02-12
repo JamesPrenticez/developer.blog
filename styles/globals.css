@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* GENERAL BUTTONS */
+.rdw-option-wrapper {
+    border: 0 !important;
+    padding: 5px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    border-radius: 0.125rem !important;
+    margin: 0 4px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    background: rgb(243 244 246)!important; /*gray-100*/
+    text-transform: capitalize !important;
+}
+
+.rdw-option-wrapper:hover {
+    box-shadow: 0px 0px 1px 1px rgb(22 163 74) !important;
+}
+.rdw-option-wrapper:active {
+    box-shadow: 0px 0px 1px 1px  rgb(22 163 74) !important;
+}
+.rdw-option-active {
+    box-shadow: 0px 0px 1px 1px  rgb(22 163 74) !important;
+}
+
+/* TEXT SELECTORS */
+.rdw-dropdown-wrapper {
+    height: 40px !important;
+    background: white !important;
+    cursor: pointer !important;
+    border: 1px solid #F1F1F1 !important;
+    border-radius: 2px !important;
+    margin: 0 3px !important;
+    text-transform: capitalize !important;
+    background: white !important;
+}
+.rdw-dropdown-wrapper:focus {
+    outline: none !important;
+}
+.rdw-dropdown-wrapper:hover {
+    box-shadow: 0px 0px 1px 1px  rgb(22 163 74) !important; /*green-600*/
+    background-color: rgb(243 244 246) !important; /*gray-100*/
+}
+.rdw-dropdown-wrapper:active { 
+    box-shadow: 0px 0px 1px 1px  rgb(22 163 74) !important; /*green-600*/
+}
+
+
+.rdw-colorpicker-modal {
+    position: absolute !important;
+    top: 35px !important;
+    left: 5px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 225px !important;
+    height: 225px !important;
+    border: 1px solid #F1F1F1 !important;
+    padding: 15px !important;
+    border-radius: 2px !important;
+    z-index: 100 !important;
+    background: white !important;
+    box-shadow: 3px 3px 5px #bfbdbd !important;
+}
+
+.rdw-colorpicker-modal-options {
+    margin: 10px auto !important;
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    flex-wrap: wrap !important;
+    overflow: hidden !important;
+}
+
+.rdw-colorpicker-modal .rdw-option-wrapper {
+    border: 2px !important;
+    padding: 0 !important;
+    min-width: 22px !important;
+    height: 22px !important;
+    border-radius: 0.125rem !important;
+    margin: 5px 4px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    background: rgb(243 244 246)!important; /*gray-100*/
+    text-transform: capitalize !important;
+}
+
+.rdw-colorpicker-cube {
+    width: 22px;
+    height: 22px;
+    border: 0px solid #F1F1F1;
+}

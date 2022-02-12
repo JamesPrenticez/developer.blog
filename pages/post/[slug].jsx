@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import { convertFromRaw } from "draft-js";
 import { stateToHTML } from 'draft-js-export-html';
 //https://www.npmjs.com/package/draft-js-export-html
+import PortableText from "react-portable-text"
 
 let options = {
   inlineStyleFn: (styles) => {
@@ -18,7 +19,12 @@ let options = {
       };
     }
   },
-};
+}
+
+// serializers={{
+//   h1: (props) => <h1 style={{ color: "red" }} {...props} />,
+//   li: ({ children }) => <li className="special-list-item">{children}</li>,
+// }}
 
 function Post({post}) {
   return (
@@ -51,10 +57,7 @@ function Post({post}) {
                 className="my-6"
                 dangerouslySetInnerHTML={{ __html: stateToHTML(convertFromRaw(JSON.parse(post.content)), options) }}
           />
-            
           </div>
-
-
         </article>
 
       </main>
