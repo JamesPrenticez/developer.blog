@@ -3,6 +3,7 @@ import Link from "next/Link"
 
 function Posts({posts}) {
   return (
+  <div className='min-h-screen'>
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:pd-6'>
       {posts.map((post, index) => (
         //Post Display Card
@@ -10,7 +11,7 @@ function Posts({posts}) {
           <div className='group cursor-pointer rounded-lg border overflow-hidden'>
             <img 
               className='h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out'
-              src={post.img}
+              src={post.image}
             />
             <div className='flex justify-between p-5 bg-white'>
               <div>
@@ -19,13 +20,14 @@ function Posts({posts}) {
               </div>
                 <img 
                   className='h-12 w-12 rounded-full'
-                  src={post.author.img}
+                  src={post.author.image}
                 />
             </div>
           </div>
         </Link>
       ))}
     </div>
+  </div>
   )
 }
 

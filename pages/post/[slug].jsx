@@ -2,6 +2,7 @@ import prisma from '../../lib/prisma';
 import Header from '../../components/Header'
 import { convertFromRaw } from "draft-js";
 import { stateToHTML } from 'draft-js-export-html';
+import Footer from '../../components/Footer';
 //https://www.npmjs.com/package/draft-js-export-html
 
 
@@ -25,18 +26,20 @@ let options = {
   inlineStyles: {
     BOLD: {className: 'font-bold'},
     ITALIC: {className: 'italic'},
+    ITALIC: {className: 'italic'},
   },
 };
 
 function Post({post}) {
   return (
-      <main>
-        <Header />
+    <>
+      <Header />
+      <main className='max-w-7xl min-h-screen mx-auto'>
         
         {/* Main Image */}
         <img 
           className="w-full h-40 object-cover"
-          src={post.img}
+          src={post.image}
         />
 
         {/* Main Image */}
@@ -46,7 +49,7 @@ function Post({post}) {
           <div className='flex items-center space-x-2'>
             <img
               className='h-10 w-10 rounded-full' 
-              src={post.author.img}
+              src={post.author.image}
               alt=""
             />
             <p className='font-extralight text-sm'>
@@ -61,8 +64,9 @@ function Post({post}) {
           />
           </div>
         </article>
-
       </main>
+      <Footer />
+    </>
   )
 }
 
@@ -98,12 +102,12 @@ export const getStaticProps = async ({params}) => {
       title: true,
       description: true,
       content: true,
-      img: true,
+      image: true,
       createdAt: true,
       author: {
         select: {
             name: true,
-            img: true,
+            image: true,
           },
       }
     },

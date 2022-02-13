@@ -1,15 +1,15 @@
 const users = [
   {
-    id: 1,
+    id: '1',
     name: 'James Prentice',
-    email: 'jamesprenticez@gmail.com',
-    img: 'https://i.imgur.com/pBKQIrC.jpg'
+    email: 'james@test.com',
+    image: 'https://i.imgur.com/pBKQIrC.jpg'
   },
   {
-    id: 2,
+    id: '2',
     name: 'Elon Musk',
-    email: 'Elon@gmail.com',
-    img: 'https://i.imgur.com/haGNItL.jpg'
+    email: 'Elon@test.com',
+    image: 'https://i.imgur.com/haGNItL.jpg'
   }
 ]
 

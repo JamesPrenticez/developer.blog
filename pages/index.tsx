@@ -1,7 +1,7 @@
 import prisma from '../lib/prisma';
 import Head from 'next/head'
 import Header from '../components/Header'
-import Banner from '../components/Banner'
+// import Banner from '../components/Banner'
 import Posts from '../components/Posts'
 import Footer from '../components/Footer'
 import { Post } from '../typings';
@@ -20,13 +20,13 @@ function Home(props: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='max-w-7xl mx-auto'>
-        <Header/>      
-        <Banner/>
+      <Header/>      
+      <main className='max-w-7xl mx-auto'>
+        {/* <Banner/> */}
         <Posts posts={props.posts} />
-        <Footer/>
         {/* <TextEditor /> */}
-      </div>
+      </main>
+      <Footer/>
     </>
   )
 }
@@ -39,11 +39,11 @@ export const getServerSideProps = async () => {
       slug: true,
       title: true,
       content: true,
-      img: true,
+      image: true,
       author: {
         select: {
             name: true,
-            img: true,
+            image: true,
           },
       }
     },
