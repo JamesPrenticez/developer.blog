@@ -5,7 +5,6 @@ import { stateToHTML } from 'draft-js-export-html';
 import Footer from '../../components/Footer';
 //https://www.npmjs.com/package/draft-js-export-html
 
-
 // let options = {
 //   inlineStyleFn: (styles) => {
 //     let key = 'color-';
@@ -58,12 +57,40 @@ function Post({post}) {
           </div>
 
           <div>
+
+        {/* Blog Post */}
           <section
                 className="my-6"
                 dangerouslySetInnerHTML={{ __html: stateToHTML(convertFromRaw(JSON.parse(post.content)), options) }}
-          />
+                />
           </div>
         </article>
+
+        {/* Comments Section */}
+        <div className='max-w-2xl mx-auto my-5 h-[3px] bg-gradient-to-r from-white via-yellow-500 to-white'></div>
+     
+        <form className='flex flex-col p-5 max-w-2xl mx-auto mb-10'>
+          <h3 className='text-sm text-yellow-500'>Enjoyed this article?</h3>
+          <h4 className='text-3xl font-bold'>Leave a comment below!</h4>
+          <hr className='py-3 mt-2'/>
+          <label className='block mb-5'>
+            <span className='text-gray-700'>Name</span>
+            <input className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2' placeholder="John Appleseed" type="text" />
+          </label>
+          <label className='block mb-5'>
+            <span className='text-gray-700'>Email</span>
+            <input className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2' placeholder="JohnAppleseed@xtra.co.nz" type="text" />
+          </label>
+          <label className='block mb-5'>
+            <span className='text-gray-700'> Comment</span>
+            <textarea 
+              className='shadow border rounded py-2 px-3 form-text-area mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
+              placeholder="John Appleseed"
+              rows={8}
+            />
+          </label>
+        </form>
+
       </main>
       <Footer />
     </>

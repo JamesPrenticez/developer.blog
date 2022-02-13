@@ -8,7 +8,7 @@ function Header() {
       <div className="flex justify-between max-w-7xl mx-auto px-5">
         <div className="flex items-center space-x-5">
           <Link href="/">
-            <h1 className="hover:cursor-pointer border-b border-white hover:text-green-600 mt-2">Developer.Blog</h1>
+            <h1 className="hover:cursor-pointer border-b border-white hover:text-gray-700 mt-2">Developer.Blog</h1>
           </Link>
           <div className="hidden md:inline-flex items-center space-x-5">
             <Link href="/">

@@ -1,17 +1,15 @@
 # Developer.Blog
-![Code](./public//brackets.png?raw=true "Logo")
+<img src="./public//brackets.png" alt="Angle Brackets" width="200"/>
 
-## Frontend Design
-https://www.youtube.com/watch?v=I2dcpatq54o&t=3822s
+## [Next JS Frontend Design (Medium Clone)](https://www.youtube.com/watch?v=I2dcpatq54o)
+Ofcourse we modified this to suit our needs
 
-## Prisma with Sqlite3
-https://vercel.com/guides/nextjs-prisma-postgres
-
+## [Prisma with Postgres Blog Tutorial](https://vercel.com/guides/nextjs-prisma-postgres)
 ``` npx prisma generate ``` This every time you update schema
 ``` npx prisma db push ```  Then this
 ``` npx prisma studio ```   Then you can do this\
 
-#### Mirgations/Seeds
+#### [Prisma Mirgations/Seeds](https://www.prisma.io/docs/guides/database/seed-database)
 ``` npx prisma migrate dev --name development ``` You will need to delete and re-run this is you change the schema
 ``` npx prisma migrate reset ``` Do this to reset the entire DB
 ``` node prisma/seeds/clean.js ``` 
@@ -29,18 +27,10 @@ https://vercel.com/guides/nextjs-prisma-postgres
   "plugins": ["superjson-next"]
 }
 ```
-## Rich Text Editor
-[https://www.npmjs.com/package/react-draft-wysiwyg]
+## [Rich Text Editor - React Draft What You See Is What You Get](https://www.npmjs.com/package/react-draft-wysiwyg)
+Modified with custom toolbar/styles 
+
+## [React Hook Form](https://www.npmjs.com/package/react-hook-form)
 
 ## Features
 - ISR (Incremental Static Regeneration) using getStaticPath & getStaticProps - Dynamic Pages (AKA each blog post) is pre-built and cached. Meaning that things a super fast!
-
-
-## Pro Tips
-Emmit:
-div>h3*3 = 
-     <div>
-          <h3></h3>
-          <h3></h3>
-          <h3></h3>
-        </div>
