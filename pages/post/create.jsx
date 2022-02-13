@@ -16,7 +16,7 @@ import { convertToRaw } from "draft-js";
 function Create() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [img, setImageURL] = useState('');
+  const [image, setImageURL] = useState('');
   const [slug, setSlug] = useState('');
   
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
@@ -37,13 +37,13 @@ function Create() {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const body = { title, content, description, img, slug };
+      const body = { title, content, description, image, slug };
       await fetch('/api/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
-      await Router.push('/drafts');
+      await Router.push('/post/drafts');
     } catch (error) {
       console.error(error);
     }
@@ -99,13 +99,13 @@ function Create() {
               onChange={(e) => setImageURL(e.target.value)}
               placeholder="Image URL"
               type="text"
-              value={img}
+              value={image}
               required
             />
             <div className='group cursor-pointer rounded-sm border overflow-hidden'>
               <img 
-                className={`h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out  bg-white ${img.length > 0 ? '' : 'opacity-50'} `}
-                src={img.length > 0 ? img : '../default-image.jpg'} 
+                className={`h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out  bg-white ${image.length > 0 ? '' : 'opacity-50'} `}
+                src={image.length > 0 ? image : '../default-image.jpg'} 
                 alt="" 
               />
             </div>

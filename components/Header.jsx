@@ -30,7 +30,7 @@ function Header() {
             <Link href="/post/create">
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Create Post</h3>
             </Link>
-            <Link href="/post/draft">
+            <Link href="/post/drafts">
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Drafts</h3>
             </Link>
             <Link href={`/account/${session?.user.email}`}>

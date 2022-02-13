@@ -4,15 +4,8 @@ import Header from '../components/Header'
 // import Banner from '../components/Banner'
 import Posts from '../components/Posts'
 import Footer from '../components/Footer'
-import { Post } from '../typings';
 
-// import TextEditor from '../components/TextEditor'
-
-interface Props {
-  posts: Post;
-}
-
-function Home(props: Props) {
+function Home(props) {
   return (
     <>
       <Head>
@@ -35,6 +28,9 @@ export default Home
 
 export const getServerSideProps = async () => {
   const posts = await prisma.post.findMany({
+    where: {
+      published: true,
+    },
     select: {
       slug: true,
       title: true,
