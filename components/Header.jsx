@@ -9,10 +9,6 @@ function Header() {
         <div className="flex items-center space-x-5">
           <Link href="/">
             <h1 className="hover:cursor-pointer border-b border-white hover:text-green-600 mt-2">Developer.Blog</h1>
-            {/* <img
-            className="w-44 object-contain cursor-pointer"
-            src="/logo.png"
-            alt="" /> */}
           </Link>
           <div className="hidden md:inline-flex items-center space-x-5">
             <Link href="/">
