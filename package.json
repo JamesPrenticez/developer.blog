@@ -1,5 +1,5 @@
 {
-  "name": "medium_clone",
+  "name": "developer.blog",
   "version": "0.0.1",
   "prisma": {
     "seed": "node prisma/seeds/all.js"

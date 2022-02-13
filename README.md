@@ -1,4 +1,5 @@
-# Medium Clone
+# Developer.Blog
+![Code](./public//brackets.png?raw=true "Logo")
 
 ## Frontend Design
 https://www.youtube.com/watch?v=I2dcpatq54o&t=3822s
