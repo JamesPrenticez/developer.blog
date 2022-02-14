@@ -23,7 +23,7 @@ function Header() {
         <div className="flex items-center space-x-5">
           { session ? 
           <>
-            <Link href="/post/create">
+            <Link href="/post/createDraft">
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Create Post</h3>
             </Link>
             <Link href="/post/drafts">
@@ -38,7 +38,7 @@ function Header() {
                 src={session?.user.image}
                 onClick={signOut}
                 />
-              <span class="tooltiptext">Sign Out</span>
+              <span className="tooltiptext">Sign Out</span>
             </div>
           </> 
           :

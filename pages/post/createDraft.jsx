@@ -13,7 +13,7 @@ import { convertToRaw } from "draft-js";
   }
 )
 
-function Create() {
+function CreateDraft() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImageURL] = useState('');
@@ -38,14 +38,14 @@ function Create() {
     e.preventDefault();
     try {
       const body = { title, content, description, image, slug };
-      await fetch('/api/post', {
+      await fetch('/api/post/createDraft', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
       await Router.push('/post/drafts');
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   }
 
@@ -54,7 +54,7 @@ function Create() {
   return (
     <>
       <Header />
-      <main className='max-w-7xl mx-auto'>
+      <main className='min-h-screen max-w-7xl mx-auto px-5'>
         <div className='flex justify-center items-center'>
           <form 
             onSubmit={submitData}
@@ -248,7 +248,7 @@ function Create() {
 
             <div className='w-full flex space-x-2'>
               <button 
-                className="bg-red-600 p-2 text-white rounded-md hover:cursor-pointer hover:bg-red-700 ml-auto"
+                className="bg-red-600 p-2 text-white rounded-md hover:cursor-pointer hover:bg-red-500 ml-auto"
                 type="button"
                 value="Discard"
                 onClick={() => setEditorState(EditorState.createEmpty())}
@@ -257,7 +257,7 @@ function Create() {
               </button>
               <button 
                 // disabled={!content || !slug || !img || !description || !title}
-                className="bg-green-600 p-2 text-white rounded-md hover:cursor-pointer hover:bg-green-700 disabled:cursor-not-allowed"
+                className="bg-green-600 p-2 text-white rounded-md hover:cursor-pointer hover:bg-green-500 disabled:cursor-not-allowed"
                 type="submit"
                 value="Create"
               >
@@ -271,4 +271,4 @@ function Create() {
   )
 }
 
-export default Create
+export default CreateDraft

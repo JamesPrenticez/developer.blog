@@ -3,6 +3,8 @@ import Header from '../../components/Header'
 import { convertFromRaw } from "draft-js";
 import { stateToHTML } from 'draft-js-export-html';
 import Footer from '../../components/Footer';
+import { useForm, SubmitHandler } from "react-hook-form"
+
 //https://www.npmjs.com/package/draft-js-export-html
 
 // let options = {
@@ -30,16 +32,34 @@ let options = {
 };
 
 function Post({post}) {
+
+  const { 
+    register,
+    handleSubmit,
+    formState:  {errors},
+  } = useForm()
+
+  const onSubmit = async(data) => {
+    await fetch('/api/post/createComment', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    }).then(() => {
+      console.log(data)
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
+
   return (
     <>
       <Header />
+      {/* Main Image */}
+      <img 
+        className="w-full h-40 object-cover"
+        src={post.image}
+      />
       <main className='max-w-7xl min-h-screen mx-auto'>
         
-        {/* Main Image */}
-        <img 
-          className="w-full h-40 object-cover"
-          src={post.image}
-        />
 
         {/* Main Image */}
         <article className='max-w-3xl mx-auto p-5'>
@@ -69,26 +89,66 @@ function Post({post}) {
         {/* Comments Section */}
         <div className='max-w-2xl mx-auto my-5 h-[3px] bg-gradient-to-r from-white via-yellow-500 to-white'></div>
      
-        <form className='flex flex-col p-5 max-w-2xl mx-auto mb-10'>
+        <form 
+          onSubmit={handleSubmit(onSubmit)}
+          className='flex flex-col p-5 max-w-2xl mx-auto mb-10'
+        >
           <h3 className='text-sm text-yellow-500'>Enjoyed this article?</h3>
           <h4 className='text-3xl font-bold'>Leave a comment below!</h4>
           <hr className='py-3 mt-2'/>
+
+          <input 
+            {...register("id")}
+            type="hidden"
+            name="id"
+            value={post.id}
+          />
+
           <label className='block mb-5'>
             <span className='text-gray-700'>Name</span>
-            <input className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2' placeholder="John Appleseed" type="text" />
+            {errors.name && (
+              <span className='text-red-500 italic text-sm'>{" "}
+              - required
+            </span>
+            )}
+            <input
+              {...register("name", { required: true })}
+              className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
+              placeholder="John Appleseed"
+              type="text"
+            />
           </label>
           <label className='block mb-5'>
-            <span className='text-gray-700'>Email</span>
-            <input className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2' placeholder="JohnAppleseed@xtra.co.nz" type="text" />
+            <span className='text-gray-700'>Email</span>{" "}
+            {errors.email && (
+              <span className='text-red-500 italic text-sm'>
+                - required
+              </span>
+            )}
+            <input
+              {...register("email", { required: true })} 
+              className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
+              placeholder="JohnAppleseed@xtra.co.nz"
+              type="email"
+            />
           </label>
           <label className='block mb-5'>
-            <span className='text-gray-700'> Comment</span>
+            <span className='text-gray-700'> Comment</span>{" "}
+            {errors.comment && (
+              <span className='text-red-500 italic text-sm'>
+                - required
+              </span>
+            )}
             <textarea 
+              {...register("comment", { required: true })}
               className='shadow border rounded py-2 px-3 form-text-area mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
               placeholder="John Appleseed"
               rows={8}
             />
           </label>
+
+          <input type="submit" className='shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white px-4 py-2 rounded cursor-pointer' />
+
         </form>
 
       </main>
@@ -126,6 +186,7 @@ export const getStaticProps = async ({params}) => {
       slug: params?.slug
     },
     select: {
+      id: true,
       title: true,
       description: true,
       content: true,

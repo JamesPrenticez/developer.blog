@@ -1,12 +1,12 @@
-# Developer.Blog
-<img src="./public//brackets.png" alt="Angle Brackets" width="200"/>
+# <img src="./public//brackets.png" alt="Angle Brackets" width="20" /> Developer.Blog
+
 
 ## Next JS Frontend Design
 - [Medium Clone](https://www.youtube.com/watch?v=I2dcpatq54o)
 - Ofcourse we modified this to suit our needs
 
 ## Prisma with Postgres
- - [Next JS with Prisma Blog Tutorial](https://vercel.com/guides/nextjs-prisma-postgres)
+- [Next JS with Prisma Blog Tutorial](https://vercel.com/guides/nextjs-prisma-postgres)
 - ``` npx prisma generate ``` This every time you update schema
 - ``` npx prisma db push ```  Then this
 - ``` npx prisma studio ```   Then you can do this\
@@ -28,10 +28,12 @@
     "plugins": ["superjson-next"]
   }
   ``` 
-## Rich Text Editor - [React Draft What You See Is What You Get](https://www.npmjs.com/package/react-draft-wysiwyg)
+## Rich Text Editor
+- [React Draft What You See Is What You Get](https://www.npmjs.com/package/react-draft-wysiwyg)
 - Modified with custom toolbar/styles 
 
-## [React Hook Form](https://www.npmjs.com/package/react-hook-form)
+## Forms
+- [react-hook-form](https://www.npmjs.com/package/react-hook-form)
 
 ## Features
 - ISR (Incremental Static Regeneration) using getStaticPath & getStaticProps - Dynamic Pages (AKA each blog post) is pre-built and cached. Meaning that things a super fast!
