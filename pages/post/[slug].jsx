@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 import { useForm, SubmitHandler } from "react-hook-form"
 
 //https://www.npmjs.com/package/draft-js-export-html
-
+//Methods - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_methods
 // let options = {
 //   inlineStyleFn: (styles) => {
 //     let key = 'color-';
@@ -27,12 +27,27 @@ let options = {
   inlineStyles: {
     BOLD: {className: 'font-bold'},
     ITALIC: {className: 'italic'},
-    ITALIC: {className: 'italic'},
+    UNDERLINE: {className: 'underline'},
+    STRIKETHROUGH: {className: 'line-through'}
   },
-};
+  inlineStyleFn: (styles) => {
+    let obj = {}
+    let color = styles.filter((value) => value.startsWith('color-')).first();
+    let highlight = styles.filter((value) => value.startsWith('bgcolor-')).first();
+    let fontFamily = styles.filter((value) => value.startsWith('fontfamily-')).first();
+    let fontSize = styles.filter((value) => value.startsWith('fontsize-')).first();
+ 
+    if (color) obj = {style: {color: color.replace('color-', '')}} 
+    if (highlight) obj = {style: {backgroundColor: highlight.replace('bgcolor-', '')}}
+    if (fontFamily) obj = {style: {fontFamily: fontFamily.replace('fontfamily-', '')}}
+    if (fontSize) obj = {style: {fontSize: fontSize.replace('fontsize-', '')}}
+
+    return obj
+  }
+}
+
 
 function Post({post}) {
-
   const { 
     register,
     handleSubmit,

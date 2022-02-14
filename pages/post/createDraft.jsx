@@ -49,8 +49,6 @@ function CreateDraft() {
     }
   }
 
-  let bold = <img className='h-12 w-12 bg-red-500' src="../text-editor-toolbar/bold.ico" alt="" />
-
   return (
     <>
       <Header />

@@ -1,0 +1,30 @@
+"style":"BOLD"
+"style":"ITALIC"
+"style":"UNDERLINE"
+"style":"STRIKETHROUGH"
+"type":"header-one"
+"type":"header-two"
+"type":"header-three"
+"type":"header-four"
+"type":"header-five"
+"type":"header-six"
+"type":"blockquote"
+"type":"code"
+[]"style":"fontsize-96"
+[x]"style":"fontfamily-Arial"
+[x]"style":"fontfamily-Georgia"
+[x]"style":"fontfamily-Impact"
+[x]"style":"fontfamily-Tahoma"
+[x]"style":"fontfamily-Times New Roman"
+[x]"style":"fontfamily-Verdana"
+"type":"unordered-list-item"
+"type":"ordered-list-item"
+"text-align":"left"
+"text-align":"center"
+"text-align":"right"
+"text-align":"justify"}
+[x]"style":"color-rgb(256,0,0)"} //text-color
+[X]"style":"bgcolor-rgb(255,223,101)"//highlight-color
+"type":"LINK",
+"text":"😃",
+"type":"IMAGE",

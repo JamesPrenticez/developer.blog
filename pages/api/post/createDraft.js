@@ -1,7 +1,7 @@
 import { getSession } from 'next-auth/react';
 import prisma from '../../../lib/prisma';
 
-// POST /api/post
+// POST /api/post/createDraft
 export default async function createDraft(req, res) {
   const { title, description, image, slug, content } = req.body;
 

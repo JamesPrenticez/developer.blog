@@ -37,3 +37,7 @@
 
 ## Features
 - ISR (Incremental Static Regeneration) using getStaticPath & getStaticProps - Dynamic Pages (AKA each blog post) is pre-built and cached. Meaning that things a super fast!
+
+## APIs
+- We can either specify headers: { 'Content-Type': 'application/json' }, when sending to the api or we can stringify and then parse in the api..
+- We need to protect the api somehow?
