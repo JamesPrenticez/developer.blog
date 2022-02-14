@@ -40,8 +40,9 @@ function Post({post}) {
   } = useForm()
 
   const onSubmit = async(data) => {
-    await fetch('/api/post/createComment', {
+    fetch('/api/post/createComment', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(() => {
       console.log(data)
@@ -98,9 +99,9 @@ function Post({post}) {
           <hr className='py-3 mt-2'/>
 
           <input 
-            {...register("id")}
+            {...register("postId")}
             type="hidden"
-            name="id"
+            name="postId"
             value={post.id}
           />
 

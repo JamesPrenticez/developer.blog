@@ -7,11 +7,11 @@
 
 ## Prisma with Postgres
 - [Next JS with Prisma Blog Tutorial](https://vercel.com/guides/nextjs-prisma-postgres)
-- ``` npx prisma generate ``` This every time you update schema
-- ``` npx prisma db push ```  Then this
-- ``` npx prisma studio ```   Then you can do this\
+- ``` npx prisma generate ``` 
+- ``` npx prisma db push ```  This every time you update schema (Update Step 2)
+- ``` npx prisma studio ```   Then you can do this
 - [Mirgations/Seeds](https://www.prisma.io/docs/guides/database/seed-database)
-- ``` npx prisma migrate dev --name development ``` You will need to delete and re-run this is you change the schema
+- ``` npx prisma migrate dev --name development ``` You will need to delete and re-run this is you change the schema (Update Step 1)
 - ``` npx prisma migrate reset ``` Do this to reset the entire DB
 - ``` node prisma/seeds/clean.js ``` 
 - ``` npx prisma db seed ``` 

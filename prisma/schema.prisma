@@ -63,9 +63,23 @@ model Post {
   slug        String? @unique
   content     String?
   image       String?
+  likes       Int
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   published   Boolean @default(false)
+  comments    Comment[]
   author      User?   @relation(fields: [authorId], references: [id])
   authorId    String?
+}
+
+model Comment {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  comment     String
+  likes       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  post        Post?   @relation(fields: [postId], references: [id])
+  postId      String?
 }

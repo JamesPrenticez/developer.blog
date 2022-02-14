@@ -17,5 +17,5 @@ export default async function createDraft(req, res) {
     },
   });
   res.json(result);
-  console.log(result)
+  //console.log(result)
 }

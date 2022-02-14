@@ -3,6 +3,7 @@ const prisma = new PrismaClient()
 
 const {users} = require('./1-users')
 const {posts} = require('./2-posts')
+const {comments} = require('./3-comments')
 
 async function main() {
   //Users
@@ -26,6 +27,17 @@ async function main() {
 
   const b = await prisma.post.findMany()
   console.log(b)
+
+  //Comments
+  for( i = 0; i < comments.length; i++){
+    const item = comments[i]
+    await prisma.comment.create({
+      data: item
+    });
+  }
+
+  const c = await prisma.comment.findMany()
+  console.log(c)
 }
 
 main()
