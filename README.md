@@ -1,5 +1,5 @@
-# <img src="./public//brackets.png" alt="Angle Brackets" width="20" /> Developer.Blog
-## Version 0.0.1 - deployed 21st Feb 2022
+# <img src="./public//brackets.png" alt="Angle Brackets" width="30" /> Developer.Blog
+Version 0.0.1 - deployed 21st Feb 2022
 ## https://blog-jamesprenticez.herokuapp.com/
 
 ## Next JS Frontend Design
@@ -49,3 +49,5 @@
 - [o] User Account Page
 - [o] Make the signIn page a bit nicer
 - [o] Fonts arn't working in deployment? Is this due to a trimmed package? idk?
+- [o] Drafts not working?
+- [o] Render comments
