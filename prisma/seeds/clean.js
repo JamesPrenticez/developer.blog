@@ -5,10 +5,12 @@ console.log("~~~ Clean.js ~~~")
 async function clean() {  
     await prisma.user.deleteMany({})
     await prisma.post.deleteMany({})
-    const w = await prisma.user.findMany()
-    const x = await prisma.post.findMany()
+    await prisma.comment.deleteMany({})
+    const a = await prisma.user.findMany()
+    const b = await prisma.post.findMany()
+    const c = await prisma.comment.findMany()
 
-    console.log("users: " + w.length, " | ", "projects: " + x.length)
+    console.log("users: " + a.length, " | ", "projects: " + b.length, " | ", "projects: " + c.length)
   }
 
   clean()
