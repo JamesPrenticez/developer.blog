@@ -1,10 +1,10 @@
 import Link from "next/link"
 import { signIn, signOut, useSession } from 'next-auth/react';
 
-function Header() {
+export default function Header() {
   const {data: session} = useSession();
   return (
-    <header className="py-4 shadow-sm bg-white mb-10">
+    <header className="py-4 shadow-sm bg-white">
       <div className="flex justify-between max-w-7xl mx-auto px-5">
         <div className="flex items-center space-x-5">
           <Link href="/" passHref>
@@ -29,7 +29,7 @@ function Header() {
             <Link href="/post/drafts" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Drafts</h3>
             </Link>
-            <Link href={`/account/${session?.user.email}`} passHref>
+            <Link href={`/user/${session?.user.email}/settings`} passHref>
               <h3 className="text-green-600 py-1 mt-2 hover:cursor-pointer">{session?.user.email}</h3>
             </Link>
             <div className="tooltip">
@@ -56,5 +56,3 @@ function Header() {
     </header>
   )
 }
-
-export default Header;

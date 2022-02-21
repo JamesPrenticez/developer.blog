@@ -52,7 +52,7 @@ function CreateDraft() {
   return (
     <>
       <Header />
-      <main className='min-h-screen max-w-7xl mx-auto px-5'>
+      <main className='min-h-screen max-w-7xl mx-auto px-5 pt-10'>
         <div className='flex justify-center items-center'>
           <form 
             onSubmit={submitData}

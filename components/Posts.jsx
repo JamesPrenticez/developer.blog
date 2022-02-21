@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function Posts({posts}) {
   return (
-  <div className='min-h-screen'>
+    <main className='min-h-screen max-w-7xl mx-auto px-5 pt-10'>
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:pd-6'>
       {posts.map((post, index) => (
         //Post Display Card
@@ -31,7 +31,7 @@ function Posts({posts}) {
 
       ))}
     </div>
-  </div>
+  </main>
   )
 }
 

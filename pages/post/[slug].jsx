@@ -59,7 +59,7 @@ function Post({post}) {
         src={post.image}
         alt=''
       />
-      <main className='max-w-7xl min-h-screen mx-auto'>
+      <main className='min-h-screen max-w-7xl mx-auto px-5 pt-10'>
         {/* Blog Post Details */}
         <article className='max-w-3xl mx-auto p-5'>
           <h1 className='text-3xl mt-10 mb-3'>{post.title}</h1>

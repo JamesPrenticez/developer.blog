@@ -1,6 +1,12 @@
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  // Development
+  provider = "sqlite"
+  url      = "file:./dev.db"
+
+  // Production
+  // provider = "postgresql"
+  // url      = env("DATABASE_URL")
+
   //shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
   // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/migrate-shadow
   // This isn't really what you want to do... 
@@ -55,7 +61,7 @@ model User {
   emailVerified DateTime?
   image         String?
   postLikes     PostLike[]
-  commentLikes CommentLike[]
+  commentLikes  CommentLike[]
   accounts      Account[]
   sessions      Session[]
   posts         Post[]
