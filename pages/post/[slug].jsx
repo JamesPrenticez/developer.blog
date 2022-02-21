@@ -7,21 +7,6 @@ import { useForm, SubmitHandler } from "react-hook-form"
 
 //https://www.npmjs.com/package/draft-js-export-html
 //Methods - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_methods
-// let options = {
-//   inlineStyleFn: (styles) => {
-//     let key = 'color-';
-//     let color = styles.filter((value) => value.startsWith(key)).first();
- 
-//     if (color) {
-//       return {
-//         element: 'span',
-//         style: {
-//           color: color.replace(key, ''),
-//         },
-//       };
-//     }
-//   },
-// }
 
 let options = {
   inlineStyles: {
@@ -45,7 +30,6 @@ let options = {
     return obj
   }
 }
-
 
 function Post({post}) {
   const { 
@@ -73,11 +57,10 @@ function Post({post}) {
       <img 
         className="w-full h-40 object-cover"
         src={post.image}
+        alt=''
       />
       <main className='max-w-7xl min-h-screen mx-auto'>
-        
-
-        {/* Main Image */}
+        {/* Blog Post Details */}
         <article className='max-w-3xl mx-auto p-5'>
           <h1 className='text-3xl mt-10 mb-3'>{post.title}</h1>
           <h2 className='text-xl font-light text-gray-500 mb-2'>{post.description}</h2>
@@ -94,7 +77,7 @@ function Post({post}) {
 
           <div>
 
-        {/* Blog Post */}
+        {/* Blog Post Content */}
           <section
                 className="my-6"
                 dangerouslySetInnerHTML={{ __html: stateToHTML(convertFromRaw(JSON.parse(post.content)), options) }}

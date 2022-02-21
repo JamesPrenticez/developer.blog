@@ -1,4 +1,4 @@
-import Link from "next/Link"
+import Link from "next/link"
 import { signIn, signOut, useSession } from 'next-auth/react';
 
 function Header() {
@@ -7,14 +7,14 @@ function Header() {
     <header className="py-4 shadow-sm bg-white mb-10">
       <div className="flex justify-between max-w-7xl mx-auto px-5">
         <div className="flex items-center space-x-5">
-          <Link href="/">
+          <Link href="/" passHref>
             <h1 className="hover:cursor-pointer border-b border-white hover:text-gray-700 mt-2">Developer.Blog</h1>
           </Link>
           <div className="hidden md:inline-flex items-center space-x-5">
-            <Link href="/">
+            <Link href="/" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">About</h3>
             </Link>
-            <Link href="/">
+            <Link href="/" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Contact Us</h3>
             </Link>
           </div>
@@ -23,13 +23,13 @@ function Header() {
         <div className="flex items-center space-x-5">
           { session ? 
           <>
-            <Link href="/post/createDraft">
+            <Link href="/post/createDraft" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Create Post</h3>
             </Link>
-            <Link href="/post/drafts">
+            <Link href="/post/drafts" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Drafts</h3>
             </Link>
-            <Link href={`/account/${session?.user.email}`}>
+            <Link href={`/account/${session?.user.email}`} passHref>
               <h3 className="text-green-600 py-1 mt-2 hover:cursor-pointer">{session?.user.email}</h3>
             </Link>
             <div className="tooltip">
@@ -37,6 +37,7 @@ function Header() {
                 className='h-12 w-12 rounded-full hover:cursor-pointer'
                 src={session?.user.image}
                 onClick={signOut}
+                alt=''
                 />
               <span className="tooltiptext">Sign Out</span>
             </div>

@@ -100,24 +100,14 @@ function CreateDraft() {
               value={image}
               required
             />
-            <div className='group cursor-pointer rounded-sm border overflow-hidden'>
+            <div className='cursor-pointer rounded-sm border overflow-hidden'>
               <img 
-                className={`h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out  bg-white ${image.length > 0 ? '' : 'opacity-50'} `}
+                className={`h-60 w-full object-cover bg-white ${image.length > 0 ? '' : 'opacity-50'} `}
                 src={image.length > 0 ? image : '../default-image.jpg'} 
                 alt="" 
               />
             </div>
-            {/* <textarea
-              cols={50}
-              className='w-full p-2 border rounded-sm'
-              onChange={(e) => setContent(e.target.value)}
-              placeholder="Content"
-              rows={8}
-              value={content}
-            /> */}
-
-            <div className="bg-[#F8F9FA]">
-            {/* https://www.veryicon.com/icons/miscellaneous/rich-text-editor/ */}
+              <div className="bg-[#F8F9FA]">
               <Editor
                 editorState={editorState}
                 onEditorStateChange={onEditorStateChange} 

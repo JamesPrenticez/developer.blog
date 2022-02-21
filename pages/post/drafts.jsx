@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSession, getSession } from 'next-auth/react';
-import Link from "next/Link"
+import Link from "next/link"
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -28,24 +29,26 @@ function Drafts({drafts}) {
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:pd-6'>
             {drafts.map((draft, index) => (
               //Drafts Display Card
-              <Link key={index} href={`/post/${draft.slug}`}>
-                <div className='group cursor-pointer rounded-lg border overflow-hidden'>
+              <div key={index} className='group cursor-pointer rounded-lg border overflow-hidden'>
+                <Link href={`/post/${draft.slug}`} passHref>
                   <img 
                     className='h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out'
                     src={draft.image}
+                    alt=''
                   />
-                  <div className='flex justify-between p-5 bg-white'>
-                    <div>
-                      <p className='text-lg font-bold'>{draft.title}</p>
-                      <p className='text-xs'>By {draft.author.name}</p>
-                    </div>
-                      <img 
-                        className='h-12 w-12 rounded-full'
-                        src={draft.author.image}
-                      />
+                  </Link>
+                <div className='flex justify-between p-5 bg-white'>
+                  <div>
+                    <p className='text-lg font-bold'>{draft.title}</p>
+                    <p className='text-xs'>By {draft.author.name}</p>
                   </div>
+                    <img 
+                      className='h-12 w-12 rounded-full'
+                      src={draft.author.image}
+                      alt=''
+                    />
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </main>
