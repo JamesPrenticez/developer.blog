@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSession } from 'next-auth/react';
-import prisma from '../lib/prisma';
+
 import Header from '../../../../components/Header'
 import NotSession from '../../../../components/NotSession';
+import prisma from '../../../../lib/prisma';
 
 export default function Settings({user, posts}) {
   const { data: session } = useSession()
