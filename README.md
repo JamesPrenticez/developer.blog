@@ -44,6 +44,9 @@ https://blog-jamesprenticez.herokuapp.com/
 - We can either specify headers: { 'Content-Type': 'application/json' }, when sending to the api or we can stringify and then parse in the api..
 - We need to protect the api somehow? https://next-auth.js.org/tutorials/securing-pages-and-api-routes
 
+## Useful
+- git push origin --set-upstream name
+
 ## To Do
 - [o] Splash on landing page
 - [o] Drafts Edit ability
