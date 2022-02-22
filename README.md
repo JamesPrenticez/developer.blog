@@ -45,7 +45,7 @@ https://blog-jamesprenticez.herokuapp.com/
 - We need to protect the api somehow? https://next-auth.js.org/tutorials/securing-pages-and-api-routes
 
 ## Useful
-- git push origin --set-upstream nam
+- git push origin --set-upstream name
 
 ## To Do
 - [o] Splash on landing page
