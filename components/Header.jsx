@@ -8,25 +8,25 @@ export default function Header() {
       <div className="flex justify-between max-w-7xl mx-auto px-5">
         <div className="flex items-center space-x-5">
           <Link href="/" passHref>
-            <h1 className="hover:cursor-pointer border-b border-white hover:text-gray-700 mt-2">Developer.Blog</h1>
+            <h1 className="hover:cursor-pointer hover:text-gray-700 mt-2">Developer.Blog</h1>
           </Link>
           <div className="hidden md:inline-flex items-center space-x-5">
-            <Link href="/" passHref>
+            {/* <Link href="/" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">About</h3>
             </Link>
             <Link href="/" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Contact Us</h3>
-            </Link>
+            </Link> */}
           </div>
         </div>
 
         <div className="flex items-center space-x-5">
           { session ? 
           <>
-            <Link href="/post/createDraft" passHref>
+            <Link href={`/user/${session?.user.email}/drafts/create`} passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Create Post</h3>
             </Link>
-            <Link href={`/user/${session?.user.email}/drafts`} passHref>
+            <Link href={`/user/${session?.user.email}/drafts/view-all`} passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Drafts</h3>
             </Link>
             <Link href={`/user/${session?.user.email}/settings`} passHref>

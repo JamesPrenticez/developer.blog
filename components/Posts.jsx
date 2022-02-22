@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from "next/link"
-import Image from 'next/image';
 
 function Posts({posts}) {
   return (
@@ -8,14 +7,13 @@ function Posts({posts}) {
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:pd-6'>
       {posts.map((post, index) => (
         //Post Display Card
-          <div key={index} className='group cursor-pointer rounded-lg border overflow-hidden'>
-            <Link href={`/post/${post.slug}`} passHref>
+        <Link key={index} href={`/post/${post.slug}`} passHref>
+          <div className='group cursor-pointer rounded-lg border overflow-hidden'>
               <img 
                 className='h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out'
                 src={post.image}
                 alt=''
               />
-            </Link>
             <div className='flex justify-between p-5 bg-white'>
               <div>
                 <p className='text-lg font-bold'>{post.title}</p>
@@ -28,7 +26,7 @@ function Posts({posts}) {
                 />
             </div>
           </div>
-
+          </Link>
       ))}
     </div>
   </main>

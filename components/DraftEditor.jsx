@@ -86,12 +86,12 @@ export default function DraftEditor({
         value={image}
         required
       />
-      <div className="cursor-pointer overflow-hidden rounded-sm border">
+      <div className="overflow-hidden rounded-sm border">
         <img
           className={`h-60 w-full bg-white object-cover ${
             image.length > 0 ? '' : 'opacity-50'
           } `}
-          src={image.length > 0 ? image : '../default-image.jpg'}
+          src={image.length > 0 ? image : '/default-image.jpg'}
           alt=""
         />
       </div>
@@ -100,7 +100,7 @@ export default function DraftEditor({
           editorState={editorState}
           onEditorStateChange={onEditorStateChange}
           toolbarClassName="flex sticky top-0 z-50 !justify-center mx-auto"
-          editorClassName="mt-2 mb-6 bg-white shadow-lg w-full !overflow-hidden mx-auto p-6 border"
+          editorClassName="mb-6 bg-white shadow-lg w-full !overflow-hidden mx-auto p-6 border !h-[600px]"
           placeholder="Start writing your blog post..."
           toolbar={{
             options: [
@@ -122,17 +122,17 @@ export default function DraftEditor({
               component: undefined,
               dropdownClassName: undefined,
               options: ['bold', 'italic', 'underline', 'strikethrough'],
-              bold: { icon: '../text-editor-toolbar/bold.svg', className: '' },
+              bold: { icon: '/text-editor-toolbar/bold.svg', className: '' },
               italic: {
-                icon: '../text-editor-toolbar/italic.svg',
+                icon: '/text-editor-toolbar/italic.svg',
                 className: undefined,
               },
               underline: {
-                icon: '../text-editor-toolbar/underline.svg',
+                icon: '/text-editor-toolbar/underline.svg',
                 className: undefined,
               },
               strikethrough: {
-                icon: '../text-editor-toolbar/strikethrough.svg',
+                icon: '/text-editor-toolbar/strikethrough.svg',
                 className: undefined,
               },
             },
@@ -182,11 +182,11 @@ export default function DraftEditor({
               dropdownClassName: undefined,
               options: ['unordered', 'ordered'],
               unordered: {
-                icon: '../text-editor-toolbar/unordered.svg',
+                icon: '/text-editor-toolbar/unordered.svg',
                 className: undefined,
               },
               ordered: {
-                icon: '../text-editor-toolbar/ordered.svg',
+                icon: '/text-editor-toolbar/ordered.svg',
                 className: undefined,
               },
             },
@@ -197,24 +197,24 @@ export default function DraftEditor({
               dropdownClassName: undefined,
               options: ['left', 'center', 'right', 'justify'],
               left: {
-                icon: '../text-editor-toolbar/left.svg',
+                icon: '/text-editor-toolbar/left.svg',
                 className: undefined,
               },
               center: {
-                icon: '../text-editor-toolbar/center.svg',
+                icon: '/text-editor-toolbar/center.svg',
                 className: undefined,
               },
               right: {
-                icon: '../text-editor-toolbar/right.svg',
+                icon: '/text-editor-toolbar/right.svg',
                 className: undefined,
               },
               justify: {
-                icon: '../text-editor-toolbar/justify.svg',
+                icon: '/text-editor-toolbar/justify.svg',
                 className: undefined,
               },
             },
             colorPicker: {
-              icon: '../text-editor-toolbar/text-color.svg',
+              icon: '/text-editor-toolbar/text-color.svg',
               className: undefined,
               component: undefined,
               popupClassName: undefined,
@@ -237,17 +237,17 @@ export default function DraftEditor({
               defaultTargetOption: '_self',
               options: ['link', 'unlink'],
               link: {
-                icon: '../text-editor-toolbar/link.svg',
+                icon: '/text-editor-toolbar/link.svg',
                 className: undefined,
               },
               unlink: {
-                icon: '../text-editor-toolbar/unlink.svg',
+                icon: '/text-editor-toolbar/unlink.svg',
                 className: undefined,
               },
               linkCallback: undefined,
             },
             emoji: {
-              icon: '../text-editor-toolbar/emoji.svg',
+              icon: '/text-editor-toolbar/emoji.svg',
               className: 'w-12',
               component: undefined,
               popupClassName: undefined,
@@ -297,7 +297,7 @@ export default function DraftEditor({
               ],
             },
             image: {
-              icon: '../text-editor-toolbar/image.svg',
+              icon: '/text-editor-toolbar/image.svg',
               className: undefined,
               component: undefined,
               popupClassName: undefined,
@@ -320,11 +320,11 @@ export default function DraftEditor({
               dropdownClassName: undefined,
               options: ['undo', 'redo'],
               undo: {
-                icon: '../text-editor-toolbar/undo.svg',
+                icon: '/text-editor-toolbar/undo.svg',
                 className: undefined,
               },
               redo: {
-                icon: '../text-editor-toolbar/redo.svg',
+                icon: '/text-editor-toolbar/redo.svg',
                 className: undefined,
               },
             },
@@ -333,7 +333,7 @@ export default function DraftEditor({
         />
       </div>
 
-      <div className="flex w-full space-x-2">
+      <div className="flex w-full space-x-2 pb-20">
         <button
           className="ml-auto rounded-md bg-red-600 p-2 text-white hover:cursor-pointer hover:bg-red-500"
           type="button"

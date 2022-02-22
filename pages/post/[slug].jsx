@@ -55,7 +55,7 @@ function Post({post}) {
       <Header />
       {/* Main Image */}
       <img 
-        className="w-full h-40 object-cover"
+        className="w-full h-60 object-cover"
         src={post.image}
         alt=''
       />
