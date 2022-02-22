@@ -42,13 +42,16 @@ https://blog-jamesprenticez.herokuapp.com/
 
 ## APIs
 - We can either specify headers: { 'Content-Type': 'application/json' }, when sending to the api or we can stringify and then parse in the api..
-- We need to protect the api somehow?
+- We need to protect the api somehow? https://next-auth.js.org/tutorials/securing-pages-and-api-routes
 
 ## To Do
 - [o] Splash on landing page
 - [o] Drafts Edit ability
 - [X] User Account Page
-- [o] Make the signIn page a bit nicer
+- [X] Make the signIn page a bit nicer
+- [X] Add Demo Account
+- [o] Actually pull demo account from the database
 - [o] Fonts arn't working in deployment? Is this due to a trimmed package? idk?
 - [o] Drafts not working?
 - [o] Render comments
+- [o] Upgrade Session to have a username? https://www.youtube.com/watch?v=a6Xs2Ir40OI 3.30.20

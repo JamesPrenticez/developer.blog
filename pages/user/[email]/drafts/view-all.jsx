@@ -26,12 +26,17 @@ export default function Drafts({drafts}) {
                 {drafts.map((draft, index) => (
                   //Drafts Display Card
                   <Link key={index} href={`/post/${draft.slug}`} passHref>
-                    <div className='group cursor-pointer rounded-lg border overflow-hidden'>
-                        <img 
-                          className='h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out'
-                          src={draft.image}
+                    <div className="overflow-hidden rounded-lg">
+                      <div 
+                        className="group overflow-hidden border-b-2"
+                        style={{borderColor: 'transparent'}}
+                      >
+                        <img
+                          className="h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+                          src={draft.image || "/default-image.jpg"}
                           alt=''
                         />
+                      </div>
                       <div className='flex justify-between p-5 bg-white'>
                         <div>
                           <p className='text-lg font-bold'>{draft.title}</p>

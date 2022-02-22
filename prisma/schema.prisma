@@ -109,5 +109,5 @@ model CommentLike {
   user        User?   @relation(fields: [userId], references: [id])
   userId      String?
   comment     Comment?   @relation(fields: [commentId], references: [id])
-  commentId      String?
+  commentId   String?
 }
