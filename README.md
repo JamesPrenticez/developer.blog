@@ -1,5 +1,5 @@
 # <img src="./public//brackets.png" alt="Angle Brackets" width="30" /> Developer.Blog
-Version 0.0.1 - deployed 21st Feb 2022
+Version 0.0.2 - deployed 22st Feb 2022
 https://blog-jamesprenticez.herokuapp.com/
 
 ## Next JS Frontend Design
@@ -45,7 +45,7 @@ https://blog-jamesprenticez.herokuapp.com/
 - We need to protect the api somehow? https://next-auth.js.org/tutorials/securing-pages-and-api-routes
 
 ## Useful
-- git push origin --set-upstream name
+- git push origin --set-upstream nam
 
 ## To Do
 - [o] Splash on landing page

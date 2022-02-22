@@ -1,6 +1,6 @@
 {
   "name": "developer.blog",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "prisma": {
     "seed": "node prisma/seeds/all.js"
   },
