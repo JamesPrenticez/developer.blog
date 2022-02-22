@@ -2,25 +2,17 @@ import React from 'react';
 import { useSession, getSession } from 'next-auth/react';
 import Link from "next/link"
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
+import NotSession from '../../../components/NotSession';
 
 function Drafts({drafts}) {
   const { data: session } = useSession();
 
   if (!session) {
     return (
-      <>
-        <Header/>
-        <main className='min-h-screen max-w-7xl mx-auto px-5 pt-10'>
-          <div className='flex justify-center items-center'>
-          <h1>Drafts</h1>
-          <div>You need to be authenticated to view this page.</div>
-          </div>
-        </main>
-        <Footer/>
-      </>
-    );
+      <NotSession />
+    )
   }
 
   return (

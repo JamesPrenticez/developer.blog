@@ -46,7 +46,7 @@ https://blog-jamesprenticez.herokuapp.com/
 ## To Do
 - [o] Splash on landing page
 - [o] Drafts Edit ability
-- [-] User Account Page
+- [X] User Account Page
 - [o] Make the signIn page a bit nicer
 - [o] Fonts arn't working in deployment? Is this due to a trimmed package? idk?
 - [o] Drafts not working?

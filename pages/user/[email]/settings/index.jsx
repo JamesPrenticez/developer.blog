@@ -1,8 +1,17 @@
 import React from 'react'
+import { useSession, getSession } from 'next-auth/react';
 import Header from '../../../../components/Header'
+import NotSession from '../../../../components/NotSession';
 
 export default function settings({user, posts}) {
-  console.log(posts)
+  const { data: session } = useSession()
+
+  if (!session) {
+    return (
+      <NotSession />
+    )
+  }
+
   return (
     <>
       <Header />
@@ -43,15 +52,21 @@ export default function settings({user, posts}) {
   )
 }
 
-export const getServerSideProps = async ({params}) => {
+export const getServerSideProps = async ({req ,res}) => {
+  const session = await getSession({ req });
+  if (!session) {
+    res.statusCode = 403;
+    return { props: { user: null } };
+  }
+
   const user = await prisma.user.findUnique({
     where:{
-      email: params?.email
+      email: session.user.email
     }
   })
   const posts = await prisma.post.findMany({
     where: {
-      author: { email: params.email },
+      author: { email: session.user.email },
       published: true,
     },
   })
