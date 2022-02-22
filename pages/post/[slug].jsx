@@ -21,11 +21,11 @@ let options = {
     let highlight = styles.filter((value) => value.startsWith('bgcolor-')).first();
     let fontFamily = styles.filter((value) => value.startsWith('fontfamily-')).first();
     let fontSize = styles.filter((value) => value.startsWith('fontsize-')).first();
- 
-    if (color) obj = {style: {color: color.replace('color-', '')}} 
-    if (highlight) obj = {style: {backgroundColor: highlight.replace('bgcolor-', '')}}
-    if (fontFamily) obj = {style: {fontFamily: fontFamily.replace('fontfamily-', '')}}
-    if (fontSize) obj = {style: {fontSize: fontSize.replace('fontsize-', '')}}
+
+    if (color) obj.style = {color: color.replace('color-', '')}
+    if (highlight) obj.style = {backgroundColor: highlight.replace('bgcolor-', '')}
+    if (fontSize) obj.style = {fontSize: fontSize.replace('fontsize-', '')}
+    if (fontFamily) obj.style = {fontFamily: fontFamily.replace('fontfamily-', '')}
 
     return obj
   }
