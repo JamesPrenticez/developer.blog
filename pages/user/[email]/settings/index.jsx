@@ -52,21 +52,15 @@ export default function Settings({user, posts}) {
   )
 }
 
-export const getServerSideProps = async ({req ,res}) => {
-  const session = await getSession({ req });
-  if (!session) {
-    res.statusCode = 403;
-    return { props: { user: null } };
-  }
-
+export const getServerSideProps = async ({params}) => {
   const user = await prisma.user.findUnique({
     where:{
-      email: session.user.email
+      email: params.email
     }
   })
   const posts = await prisma.post.findMany({
     where: {
-      author: { email: session.user.email },
+      author: { email: user.email },
       published: true,
     },
   })
