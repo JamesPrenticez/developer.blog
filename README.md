@@ -5,6 +5,7 @@ https://blog-jamesprenticez.herokuapp.com/
 ## Next JS Frontend Design
 - [Medium Clone](https://www.youtube.com/watch?v=I2dcpatq54o)
 - Ofcourse we modified this to suit our needs
+- https://dropbox.tech/
 
 ## Prisma with Postgres
 - [Next JS with Prisma Blog Tutorial](https://vercel.com/guides/nextjs-prisma-postgres)

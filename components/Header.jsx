@@ -26,7 +26,7 @@ export default function Header() {
             <Link href="/post/createDraft" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Create Post</h3>
             </Link>
-            <Link href="/post/drafts" passHref>
+            <Link href={`/user/${session?.user.email}/drafts`} passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Drafts</h3>
             </Link>
             <Link href={`/user/${session?.user.email}/settings`} passHref>

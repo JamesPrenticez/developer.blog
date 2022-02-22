@@ -3,7 +3,7 @@ import { useSession, getSession } from 'next-auth/react';
 import Header from '../../../../components/Header'
 import NotSession from '../../../../components/NotSession';
 
-export default function settings({user, posts}) {
+export default function Settings({user, posts}) {
   const { data: session } = useSession()
 
   if (!session) {

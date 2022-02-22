@@ -2,11 +2,11 @@ import React from 'react';
 import { useSession, getSession } from 'next-auth/react';
 import Link from "next/link"
 
-import Header from '../../../components/Header';
-import Footer from '../../../components/Footer';
-import NotSession from '../../../components/NotSession';
+import Header from '../../../../components/Header';
+import Footer from '../../../../components/Footer';
+import NotSession from '../../../../components/NotSession';
 
-function Drafts({drafts}) {
+export default function Drafts({drafts}) {
   const { data: session } = useSession();
 
   if (!session) {
@@ -54,8 +54,6 @@ function Drafts({drafts}) {
     </>
   )
 }
-
-export default Drafts;
 
 export const getServerSideProps = async ({ req, res }) => {
   const session = await getSession({ req });
