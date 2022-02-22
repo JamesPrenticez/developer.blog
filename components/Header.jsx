@@ -1,35 +1,35 @@
 import Link from "next/link"
 import { signIn, signOut, useSession } from 'next-auth/react';
 
-function Header() {
+export default function Header() {
   const {data: session} = useSession();
   return (
-    <header className="py-4 shadow-sm bg-white mb-10">
+    <header className="py-4 shadow-sm bg-white">
       <div className="flex justify-between max-w-7xl mx-auto px-5">
         <div className="flex items-center space-x-5">
           <Link href="/" passHref>
-            <h1 className="hover:cursor-pointer border-b border-white hover:text-gray-700 mt-2">Developer.Blog</h1>
+            <h1 className="hover:cursor-pointer hover:text-gray-700 mt-2">Developer.Blog</h1>
           </Link>
           <div className="hidden md:inline-flex items-center space-x-5">
-            <Link href="/" passHref>
+            {/* <Link href="/" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">About</h3>
             </Link>
             <Link href="/" passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Contact Us</h3>
-            </Link>
+            </Link> */}
           </div>
         </div>
 
         <div className="flex items-center space-x-5">
           { session ? 
           <>
-            <Link href="/post/createDraft" passHref>
+            <Link href={`/user/${session?.user.email}/drafts/create`} passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Create Post</h3>
             </Link>
-            <Link href="/post/drafts" passHref>
+            <Link href={`/user/${session?.user.email}/drafts/view-all`} passHref>
               <h3 className="hover:cursor-pointer border-b border-white hover:border-b hover:border-green-600 mt-2">Drafts</h3>
             </Link>
-            <Link href={`/account/${session?.user.email}`} passHref>
+            <Link href={`/user/${session?.user.email}/settings`} passHref>
               <h3 className="text-green-600 py-1 mt-2 hover:cursor-pointer">{session?.user.email}</h3>
             </Link>
             <div className="tooltip">
@@ -56,5 +56,3 @@ function Header() {
     </header>
   )
 }
-
-export default Header;

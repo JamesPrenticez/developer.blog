@@ -1,16 +1,16 @@
 const users = [
   {
     id: '1',
-    name: 'James Prentice',
-    email: 'james@test.com',
-    image: 'https://i.imgur.com/pBKQIrC.jpg'
+    name: 'Elon Musk',
+    email: 'elon@tesla.com',
+    image: 'https://i.imgur.com/RqVVBOR.jpg'
   },
   {
     id: '2',
-    name: 'Elon Musk',
-    email: 'Elon@test.com',
-    image: 'https://i.imgur.com/haGNItL.jpg'
-  }
+    name: 'James Prentice',
+    email: 'james@prentice.com',
+    image: 'https://i.imgur.com/pBKQIrC.jpg'
+  },
 ]
 
 module.exports = {users}
