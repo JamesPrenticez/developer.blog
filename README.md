@@ -47,14 +47,19 @@ https://blog-jamesprenticez.vercel.app/
 ## Useful
 - git push origin --set-upstream name
 
+## Typewriter Effect
+- https://www.npmjs.com/package/typewriter-effect the reason I have decided to use a package here is beacuse building it myself is little bit jancky and its not work this time to make it perfect... and I want it perfect because its on the home page and the focus point for all visitors..
+- https://levelup.gitconnected.com/typing-effect-in-react-56697def0473 janky options
+- https://codepen.io/brunadafonseca/pen/PxqLMq?editors=1010 slightly better option
+
 ## To Do
-- [o] Splash on landing page
+- [X] Splash on landing page
+- [X] Drafts not working? import prisma herpderp
 - [o] Drafts Edit ability
 - [X] User Account Page
 - [X] Make the signIn page a bit nicer
 - [X] Add Demo Account
 - [o] Actually pull demo account from the database
-- [o] Fonts arn't working in deployment? Is this due to a trimmed package? idk?
-- [o] Drafts not working?
+- [X] Fonts arn't working in deployment? Is this due to a trimmed package? idk?
 - [o] Render comments
 - [o] Upgrade Session to have a username? https://www.youtube.com/watch?v=a6Xs2Ir40OI 3.30.20

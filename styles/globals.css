@@ -44,8 +44,8 @@
     }
 
     @font-face {
-        font-family: 'Sharp Grotesk';
-        src: url(/fonts/sharp-grotesk.ttf) format('truetype');
+        font-family: 'sharp grotesk';
+        src: url(/fonts/sharp-grotesk-500.ttf) format('truetype');
     }
 
     .tooltip {

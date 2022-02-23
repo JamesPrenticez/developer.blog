@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sharpGrotesk: ['Sharp Grotesk'],
+        sharpGrotesk500: ['sharp grotesk 600'],
+        sharpGrotesk600: ['sharp grotesk 600'],
        },
     },
   },
