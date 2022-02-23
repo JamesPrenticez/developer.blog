@@ -47,6 +47,7 @@
 
 ## Useful
 - git push origin --set-upstream name
+- VSCode settings.json - "emmet.showSuggestionsAsSnippets": true, & "editor.snippetSuggestions": "top"
 
 ## Typewriter Effect
 - https://www.npmjs.com/package/typewriter-effect the reason I have decided to use a package here is beacuse building it myself is little bit jancky and its not work this time to make it perfect... and I want it perfect because its on the home page and the focus point for all visitors..
@@ -54,13 +55,18 @@
 - https://codepen.io/brunadafonseca/pen/PxqLMq?editors=1010 slightly better option
 
 ## To Do
+- [o] Render comments
+- [o] Drafts Edit ability
+- [o] Actually pull demo account from the database
+- [o] Upgrade Session to have a username? https://www.youtube.com/watch?v=a6Xs2Ir40OI 3.30.20
+- [o] Fix left,right,center and justify text display
 - [X] Splash on landing page
 - [X] Drafts not working? import prisma herpderp
-- [o] Drafts Edit ability
 - [X] User Account Page
 - [X] Make the signIn page a bit nicer
 - [X] Add Demo Account
-- [o] Actually pull demo account from the database
 - [X] Fonts arn't working in deployment? Is this due to a trimmed package? idk?
-- [o] Render comments
-- [o] Upgrade Session to have a username? https://www.youtube.com/watch?v=a6Xs2Ir40OI 3.30.20
+- [X] Render code block
+## Feature creep
+- [o] Animation for comment submission https://dev.to/devwares/how-to-create-tailwind-css-animation-379 & https://codepen.io/ottodevs/pen/BMmdMM
+- [o] Custom component for images with Draft.js? How hard is this?

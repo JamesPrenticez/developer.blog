@@ -4,6 +4,7 @@ import { convertFromRaw } from "draft-js";
 import { stateToHTML } from 'draft-js-export-html';
 import Footer from '../../components/Footer';
 import { useForm } from "react-hook-form"
+import { useState } from 'react';
 
 //https://www.npmjs.com/package/draft-js-export-html
 //Methods - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_methods
@@ -32,13 +33,15 @@ let options = {
   },
   blockRenderers: {
     code: (block) => {
-      console.log(block)
         return '<pre>' + block.getText() + '</pre>';
     }
   },
 }
 
 function Post({post}) {
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
+
   const { 
     register,
     handleSubmit,
@@ -51,8 +54,11 @@ function Post({post}) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
-    }).then(() => {
+    }).then((res) => {
       console.log(data)
+      if(res.status === 200){
+        setSubmitted(true)
+      } else setError(true)
     }).catch((err) => {
       console.log(err)
     })
@@ -94,69 +100,79 @@ function Post({post}) {
         </article>
 
         {/* Comments Section */}
-        <div className='max-w-2xl mx-auto my-5 h-[3px] bg-gradient-to-r from-white via-yellow-500 to-white'></div>
-     
-        <form 
-          onSubmit={handleSubmit(onSubmit)}
-          className='flex flex-col p-5 max-w-2xl mx-auto mb-10'
-        >
-          <h3 className='text-sm text-yellow-500'>Enjoyed this article?</h3>
-          <h4 className='text-3xl font-bold'>Leave a comment below!</h4>
-          <hr className='py-3 mt-2'/>
+        <div className='max-w-3xl mx-auto my-5 h-[3px] bg-gradient-to-r from-white via-yellow-500 to-white'></div>
 
-          <input 
-            {...register("postId")}
-            type="hidden"
-            name="postId"
-            value={post.id}
-          />
+        
+        {submitted ? (
+          //https://codepen.io/ottodevs/pen/BMmdMM
+          //https://dev.to/devwares/how-to-create-tailwind-css-animation-379
+          <div className='flex flex-col p-10 my-10 bg-yellow-500 text-white max-w-3xl mx-auto'>
+            <h3 className='text-3xl font-bold'>Thank you for submitting your comment!</h3>
+            <p className=''>Once it has been approved, it will appear below!</p>
+          </div>
+        ):(
+          <form 
+            onSubmit={handleSubmit(onSubmit)}
+            className='flex flex-col p-5 max-w-2xl mx-auto mb-10'
+          >
+            <h3 className='text-sm text-yellow-500'>Enjoyed this article?</h3>
+            <h4 className='text-3xl font-bold'>Leave a comment below!</h4>
+            <hr className='py-3 mt-2'/>
 
-          <label className='block mb-5'>
-            <span className='text-gray-700'>Name</span>
-            {errors.name && (
-              <span className='text-red-500 italic text-sm'>{" "}
-              - required
-            </span>
-            )}
-            <input
-              {...register("name", { required: true })}
-              className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
-              placeholder="John Appleseed"
-              type="text"
+            <input 
+              {...register("postId")}
+              type="hidden"
+              name="postId"
+              value={post.id}
             />
-          </label>
-          <label className='block mb-5'>
-            <span className='text-gray-700'>Email</span>{" "}
-            {errors.email && (
-              <span className='text-red-500 italic text-sm'>
+
+            <label className='block mb-5'>
+              <span className='text-gray-700'>Name</span>
+              {errors.name && (
+                <span className='text-red-500 italic text-sm'>{" "}
                 - required
               </span>
-            )}
-            <input
-              {...register("email", { required: true })} 
-              className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
-              placeholder="JohnAppleseed@xtra.co.nz"
-              type="email"
-            />
-          </label>
-          <label className='block mb-5'>
-            <span className='text-gray-700'> Comment</span>{" "}
-            {errors.comment && (
-              <span className='text-red-500 italic text-sm'>
-                - required
-              </span>
-            )}
-            <textarea 
-              {...register("comment", { required: true })}
-              className='shadow border rounded py-2 px-3 form-text-area mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
-              placeholder="John Appleseed"
-              rows={8}
-            />
-          </label>
+              )}
+              <input
+                {...register("name", { required: true })}
+                className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
+                placeholder="John Appleseed"
+                type="text"
+              />
+            </label>
+            <label className='block mb-5'>
+              <span className='text-gray-700'>Email</span>{" "}
+              {errors.email && (
+                <span className='text-red-500 italic text-sm'>
+                  - required
+                </span>
+              )}
+              <input
+                {...register("email", { required: true })} 
+                className='shadow rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
+                placeholder="JohnAppleseed@xtra.co.nz"
+                type="email"
+              />
+            </label>
+            <label className='block mb-5'>
+              <span className='text-gray-700'> Comment</span>{" "}
+              {errors.comment && (
+                <span className='text-red-500 italic text-sm'>
+                  - required
+                </span>
+              )}
+              <textarea 
+                {...register("comment", { required: true })}
+                className='shadow border rounded py-2 px-3 form-text-area mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
+                placeholder="John Appleseed"
+                rows={4}
+              />
+            </label>
 
-          <input type="submit" className='shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white px-4 py-2 rounded cursor-pointer' />
-
-        </form>
+            <input type="submit" className='shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white px-4 py-2 rounded cursor-pointer' />
+            {error ? <p className='flex justify-center text-red-500'>Error! Please let admin know</p> : ''}
+          </form>
+        )}
 
       </main>
       <Footer />
