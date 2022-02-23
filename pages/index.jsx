@@ -17,7 +17,6 @@ function Home(props) {
       <main className='max-w-7xl mx-auto'>
         {/* <Banner/> */}
         <Posts posts={props.posts} />
-        {/* <TextEditor /> */}
       </main>
       <Footer/>
     </>

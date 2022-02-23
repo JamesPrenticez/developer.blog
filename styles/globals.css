@@ -25,6 +25,24 @@
         font-size: 0.70em;
     }
 
+    ul, ol {
+        list-style: revert;
+    }
+
+    blockquote {
+        background: rgb(243 244 246); /* bg-gray-100 */
+        border-left: 5px solid rgb(22 163 74);  /* bg-green-600 */ 
+        margin: 1.5em 10px;
+        padding: 1em 10px;
+    }
+
+    code {
+        background: rgb(243 244 246); /* bg-gray-100 */
+        border-left: 5px solid rgb(22 163 74);  /* bg-green-600 */ 
+        margin: 1.5em 10px;
+        padding: 1em 10px;
+    }
+
     @font-face {
         font-family: 'Sharp Grotesk';
         src: url(/fonts/sharp-grotesk.ttf) format('truetype');
