@@ -19,10 +19,8 @@ export default function Drafts({drafts}) {
     <>
       <Header/>
       <main className='min-h-screen max-w-7xl mx-auto px-5 pt-10'>
-          <div className='flex justify-center items-center'>
-            <div className='w-4/6'>
             <h1 className='text-xl font-bold p-2'>My Drafts</h1>
-              <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:pd-6'>
+              <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6 p-2 md:pd-6'>
                 {drafts.map((draft, index) => (
                   //Drafts Display Card
                   <Link key={index} href={`/post/${draft.slug}`} passHref>
@@ -51,9 +49,7 @@ export default function Drafts({drafts}) {
                     </div>
                   </Link>
                 ))}
-              </div>
             </div>
-          </div>
         </main>
       <Footer/>
     </>
