@@ -1,6 +1,5 @@
 import React from 'react'
-import Router from 'next/router';
-import { useSession } from 'next-auth/react';
+
 
 import dynamic from "next/dynamic"
 const Editor = dynamic(() => import("react-draft-wysiwyg").then((module) => module.Editor),
@@ -18,32 +17,13 @@ export default function DraftEditor({
   setImageURL,
   slug,
   setSlug,
-  content,
   generateSlug,
   editorState,
-  setEditorState,
   onEditorStateChange,
 }) {
 
-  const { data: session } = useSession();  
-
-  const submitData = async (e) => {
-    e.preventDefault();
-    try {
-      const body = { title, content, description, image, slug };
-      await fetch('/api/post/createDraft', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      await Router.push(`/user/${session?.user.email}/drafts`);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
   return (
-    <form onSubmit={submitData} className="w-4/6 space-y-1">
+    <>
       <h1 className="p-2 text-xl font-bold">Create New Draft</h1>
       <input
         autoFocus
@@ -100,7 +80,7 @@ export default function DraftEditor({
           editorState={editorState}
           onEditorStateChange={onEditorStateChange}
           toolbarClassName="flex sticky top-0 z-50 !justify-center mx-auto"
-          editorClassName="mb-6 bg-white shadow-lg w-full !overflow-hidden mx-auto p-6 border !h-[600px]"
+          editorClassName="mb-6 bg-white shadow-lg w-full !overflow-hidden mx-auto p-6 border !min-h-[600px]"
           placeholder="Start writing your blog post..."
           toolbar={{
             options: [
@@ -154,7 +134,6 @@ export default function DraftEditor({
               dropdownClassName: undefined,
             },
             fontSize: {
-              icon: 'fontSize',
               options: [
                 8, 9, 10, 11, 12, 14, 16, 18, 24, 30, 36, 48, 60, 72, 96,
               ],
@@ -332,25 +311,6 @@ export default function DraftEditor({
           required
         />
       </div>
-
-      <div className="flex w-full space-x-2 pb-20">
-        <button
-          className="ml-auto rounded-md bg-red-600 p-2 text-white hover:cursor-pointer hover:bg-red-500"
-          type="button"
-          value="Discard"
-          onClick={() => setEditorState(editorState.createEmpty())}
-        >
-          Discard
-        </button>
-        <button
-          // disabled={!content || !slug || !img || !description || !title}
-          className="rounded-md bg-green-600 p-2 text-white hover:cursor-pointer hover:bg-green-500 disabled:cursor-not-allowed"
-          type="submit"
-          value="Create"
-        >
-          Save Draft
-        </button>
-      </div>
-    </form>
+    </>
   )
 }

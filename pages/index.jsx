@@ -1,7 +1,7 @@
 import prisma from '../lib/prisma';
 import Head from 'next/head'
 import Header from '../components/Header'
-// import Banner from '../components/Banner'
+import Banner from '../components/Banner'
 import Posts from '../components/Posts'
 import Footer from '../components/Footer'
 
@@ -14,10 +14,9 @@ function Home(props) {
       </Head>
 
       <Header/>      
+      <Banner/>
       <main className='max-w-7xl mx-auto'>
-        {/* <Banner/> */}
         <Posts posts={props.posts} />
-        {/* <TextEditor /> */}
       </main>
       <Footer/>
     </>

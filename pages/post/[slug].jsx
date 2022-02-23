@@ -17,16 +17,16 @@ let options = {
   },
   inlineStyleFn: (styles) => {
     let obj = {}
+    obj.style = {}
     let color = styles.filter((value) => value.startsWith('color-')).first();
     let highlight = styles.filter((value) => value.startsWith('bgcolor-')).first();
     let fontFamily = styles.filter((value) => value.startsWith('fontfamily-')).first();
     let fontSize = styles.filter((value) => value.startsWith('fontsize-')).first();
- 
-    if (color) obj = {style: {color: color.replace('color-', '')}} 
-    if (highlight) obj = {style: {backgroundColor: highlight.replace('bgcolor-', '')}}
-    if (fontFamily) obj = {style: {fontFamily: fontFamily.replace('fontfamily-', '')}}
-    if (fontSize) obj = {style: {fontSize: fontSize.replace('fontsize-', '')}}
 
+    if (color)  Object.assign(obj.style, {color: color.replace('color-', '')});
+    if (highlight) Object.assign(obj.style, {backgroundColor: highlight.replace('bgcolor-', '')});
+    if (fontFamily)  Object.assign(obj.style, {fontFamily: fontFamily.replace('fontfamily-', '')});
+    if (fontSize) Object.assign(obj.style, {fontSize: fontSize.replace('fontsize-', '')})
     return obj
   }
 }
