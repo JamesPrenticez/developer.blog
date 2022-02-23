@@ -5,7 +5,7 @@ export default function Header() {
   const {data: session} = useSession();
   return (
     <header className="py-4 shadow-sm bg-black text-white">
-      <div className="flex justify-between mx-auto px-10">
+      <div className="flex justify-between mx-auto max-w-7xl">
         <div className="flex items-center space-x-5">
           <Link href="/" passHref>
             <h1 className="hover:cursor-pointer hover:text-slate-300 mt-2">Developer.Blog</h1>

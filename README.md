@@ -1,6 +1,7 @@
 # <img src="./public//brackets.png" alt="Angle Brackets" width="30" /> Developer.Blog
-Version 0.0.2 - deployed 22st Feb 2022
-https://blog-jamesprenticez.vercel.app/
+- Version 0.0.2 - deployed 22st Feb 2022
+- ***[Live Demo!](https://blog-jamesprenticez.vercel.app/)***
+
 
 ## Next JS Frontend Design
 - [Medium Clone](https://www.youtube.com/watch?v=I2dcpatq54o)

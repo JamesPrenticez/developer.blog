@@ -3,12 +3,13 @@ import Header from '../../components/Header'
 import { convertFromRaw } from "draft-js";
 import { stateToHTML } from 'draft-js-export-html';
 import Footer from '../../components/Footer';
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 
 //https://www.npmjs.com/package/draft-js-export-html
 //Methods - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_methods
 
 let options = {
+
   inlineStyles: {
     BOLD: {className: 'font-bold'},
     ITALIC: {className: 'italic'},
@@ -23,12 +24,18 @@ let options = {
     let fontFamily = styles.filter((value) => value.startsWith('fontfamily-')).first();
     let fontSize = styles.filter((value) => value.startsWith('fontsize-')).first();
 
-    if (color)  Object.assign(obj.style, {color: color.replace('color-', '')});
+    if (color) Object.assign(obj.style, {color: color.replace('color-', '')});
     if (highlight) Object.assign(obj.style, {backgroundColor: highlight.replace('bgcolor-', '')});
-    if (fontFamily)  Object.assign(obj.style, {fontFamily: fontFamily.replace('fontfamily-', '')});
+    if (fontFamily) Object.assign(obj.style, {fontFamily: fontFamily.replace('fontfamily-', '')});
     if (fontSize) Object.assign(obj.style, {fontSize: fontSize.replace('fontsize-', '')})
     return obj
-  }
+  },
+  blockRenderers: {
+    code: (block) => {
+      console.log(block)
+        return '<pre>' + block.getText() + '</pre>';
+    }
+  },
 }
 
 function Post({post}) {
@@ -38,6 +45,7 @@ function Post({post}) {
     formState:  {errors},
   } = useForm()
 
+  // Submit Comments (not posts... perhaps componentize this?)
   const onSubmit = async(data) => {
     fetch('/api/post/createComment', {
       method: 'POST',
