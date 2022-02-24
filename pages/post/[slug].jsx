@@ -257,6 +257,7 @@ export const getStaticProps = async ({params}) => {
       approved: true
     },
     select: {
+      id: true,
       name: true,
       content: true,
       createdAt: true,
