@@ -19,8 +19,6 @@ export default function Drafts({drafts}) {
     <>
       <Header/>
       <main className='min-h-screen max-w-7xl mx-auto px-5 pt-10'>
-          <div className='flex justify-center items-center'>
-            <div className='w-4/6'>
             <h1 className='text-xl font-bold p-2'>My Drafts</h1>
               <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:pd-6'>
                 {drafts.map((draft, index) => (
@@ -32,7 +30,7 @@ export default function Drafts({drafts}) {
                         style={{borderColor: 'transparent'}}
                       >
                         <img
-                          className="h-60 w-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+                          className="h-60 w-full object-fit group-hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
                           src={draft.image || "/default-image.jpg"}
                           alt=''
                         />
@@ -43,7 +41,7 @@ export default function Drafts({drafts}) {
                           <p className='text-xs'>By {draft.author.name}</p>
                         </div>
                           <img 
-                            className='h-12 w-12 rounded-full'
+                            className='h-12 w-12 rounded-full object-cover'
                             src={draft.author.image}
                             alt=''
                           />
@@ -51,9 +49,7 @@ export default function Drafts({drafts}) {
                     </div>
                   </Link>
                 ))}
-              </div>
             </div>
-          </div>
         </main>
       <Footer/>
     </>

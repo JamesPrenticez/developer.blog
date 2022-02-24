@@ -123,9 +123,6 @@ export default function DraftEditor({
                 'H1',
                 'H2',
                 'H3',
-                'H4',
-                'H5',
-                'H6',
                 'Blockquote',
                 'Code',
               ],
@@ -198,12 +195,14 @@ export default function DraftEditor({
               component: undefined,
               popupClassName: undefined,
               colors: [
-                'rgb(0,0,0)',
-                'rgb(256,256,256)',
-                'rgb(255,223,101)',
-                'rgb(256,0,0)',
-                'rgb(0,256,0)',
-                'rgb(0,0,256)',
+                'rgb(0,0,0,0)', // Transparent
+                'rgb(209 213 219)', // Gray-300
+                'rgb(256,256,256)', // Black
+                'rgb(239 68 68)', // Red-500
+                'rgb(34 197 94)', // Green-500
+                'rgb(56 189 248)', // Sky-400
+                'rgb(253 224 71)', // Yellow-300
+                'rgb(217 70 239)', // Fuchsia-500
               ],
             },
             link: {

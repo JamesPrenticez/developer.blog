@@ -26,7 +26,7 @@ function Posts({posts}) {
                 <p className='text-xs'>By {post.author.name}</p>
               </div>
                 <img 
-                  className='h-12 w-12 rounded-full'
+                  className='h-12 w-12 rounded-full object-cover'
                   src={post.author.image}
                   alt=''
                 />

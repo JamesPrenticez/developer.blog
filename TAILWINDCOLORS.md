@@ -1,6 +1,13 @@
 ## Tailwind Colors
 ![#39ff14](https://via.placeholder.com/15/39ff14/000000?text=+) #39ff14 - Terminal Green
 
+- bg-gray-50	background-color: rgb(249 250 251);	
+- bg-gray-100	background-color: rgb(243 244 246);	
+- bg-gray-200	background-color: rgb(229 231 235);	
+- bg-gray-300	background-color: rgb(209 213 219);	
+- bg-gray-400	background-color: rgb(156 163 175);	
+- bg-gray-500	background-color: rgb(107 114 128);
+
 - bg-red-400	background-color: rgb(248 113 113);	
 - bg-red-500	background-color: rgb(239 68 68);	
 - bg-red-600	background-color: rgb(220 38 38);

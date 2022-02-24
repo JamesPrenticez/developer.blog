@@ -21,7 +21,7 @@ export default NextAuth({
           id: '1',
           name: 'Elon Musk',
           email: 'elon@tesla.com',
-          image: 'https://i.imgur.com/RqVVBOR.jpg'
+          image: 'https://i.imgur.com/l7eQGiE.jpg'
         }
         return user
       }
