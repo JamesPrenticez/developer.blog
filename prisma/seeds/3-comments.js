@@ -5,6 +5,7 @@ const comments = [
     email: 'Jeff@amazon.com',
     content: 'I hope that there is lots of water up there!',
     postId: 'ckzywzytm00413svi6jezdk1o',
+    approved: true,
   },
   {
     id: 'cl004xaib0060l4vi974cnzma',
@@ -12,6 +13,7 @@ const comments = [
     email: 'richard@virgin.com',
     content: 'OMG! I want to go to mars! Where do I sign up?',
     postId: 'ckzywzytm00413svi6jezdk1o',
+    approved: true,
   },
   {
     id: 'cl004ykz70070l4vi98kxxm34',
@@ -19,6 +21,7 @@ const comments = [
     email: 'Betty@BlueberryJuice@gmail.com',
     content: 'Ooooh I just love that purple/pink color!',
     postId: 'ckzyxh6of01453svii3bxf707',
+    approved: true,
   },
 ]
 

@@ -10,7 +10,7 @@ async function clean() {
     const b = await prisma.post.findMany()
     const c = await prisma.comment.findMany()
 
-    console.log("users: " + a.length, " | ", "projects: " + b.length, " | ", "projects: " + c.length)
+    console.log("users: " + a.length, " | ", "projects: " + b.length, " | ", "comments: " + c.length)
   }
 
   clean()

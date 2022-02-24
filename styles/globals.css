@@ -57,6 +57,14 @@
         padding: 1em 10px !important;
     }
 
+    figure > img{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        filter: drop-shadow(0 10px 8px rgb(0, 0, 0, 0.04));
+        filter: drop-shadow(10px 10px 8px  rgb(0, 0, 0, 0.3));
+    }
+
     @font-face {
         font-family: 'sharp grotesk';
         src: url(/fonts/sharp-grotesk-500.ttf) format('truetype');

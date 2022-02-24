@@ -5,6 +5,7 @@ import { stateToHTML } from 'draft-js-export-html';
 import Footer from '../../components/Footer';
 import { useForm } from "react-hook-form"
 import { useState } from 'react';
+import { useRouter } from 'next/router'
 
 //https://www.npmjs.com/package/draft-js-export-html
 //Methods - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#defining_methods
@@ -39,6 +40,7 @@ let options = {
 }
 
 function Post({post, comments}) {
+  const router = useRouter();
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(false)
 
@@ -55,12 +57,13 @@ function Post({post, comments}) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then((res) => {
-      console.log(data)
+      //console.log(data)
       if(res.status === 200){
         setSubmitted(true)
+        router.replace(router.asPath); //Troll solution to refresh props and fetch new comments
       } else setError(true)
     }).catch((err) => {
-      console.log(err)
+      //console.log(err)
     })
   }
 
@@ -89,13 +92,12 @@ function Post({post, comments}) {
               Published at: {post.createdAt.toLocaleString()}</p>
           </div>
 
+          {/* Blog Post Content */}
           <div>
-
-        {/* Blog Post Content */}
-          <section
-                className="my-6"
-                dangerouslySetInnerHTML={{ __html: stateToHTML(convertFromRaw(JSON.parse(post.content)), options) }}
-                />
+            <section
+                  className="my-6"
+                  dangerouslySetInnerHTML={{ __html: stateToHTML(convertFromRaw(JSON.parse(post.content)), options) }}
+            />
           </div>
         </article>
 
@@ -108,15 +110,16 @@ function Post({post, comments}) {
           //https://dev.to/devwares/how-to-create-tailwind-css-animation-379
           <div className='flex flex-col p-10 my-10 bg-yellow-500 text-white max-w-3xl mx-auto'>
             <h3 className='text-3xl font-bold'>Thank you for submitting your comment!</h3>
-            <p className=''>Once it has been approved, it will appear below!</p>
+            <p className='text-xl'>Once it has been approved, it will appear below!</p>
+            <p className='text-fuchsia-500 text-md'>Jokes! Moderators on holiday - all comments are automatically approved</p>
           </div>
         ):(
           <form 
             onSubmit={handleSubmit(onSubmit)}
-            className='flex flex-col p-5 max-w-2xl mx-auto mb-10'
+            className='flex flex-col p-5 max-w-3xl mx-auto mb-10 shadow-md'
           >
             <h3 className='text-sm text-yellow-500'>Enjoyed this article?</h3>
-            <h4 className='text-3xl font-bold'>Leave a comment below!</h4>
+            <h2 className='text-3xl'>Leave a comment below!</h2>
             <hr className='py-3 mt-2'/>
 
             <input 
@@ -156,13 +159,13 @@ function Post({post, comments}) {
             </label>
             <label className='block mb-5'>
               <span className='text-gray-700'> Comment</span>{" "}
-              {errors.comment && (
+              {errors.content && (
                 <span className='text-red-500 italic text-sm'>
                   - required
                 </span>
               )}
               <textarea 
-                {...register("comment", { required: true })}
+                {...register("content", { required: true })}
                 className='shadow border rounded py-2 px-3 form-text-area mt-1 block w-full ring-yellow-500 outline-none focus:ring-2'
                 placeholder="John Appleseed"
                 rows={4}
@@ -175,15 +178,24 @@ function Post({post, comments}) {
         )}
 
         {/* Render Comments */}
-        {comments.map((comment, index) => {
-          return(
-            <div key={index}>
-              <p >{comment.name}</p>
-              <p >{comment.content}</p> 
-              <p >{comment.createdAt.toLocaleString()}</p>
-            </div>
-          )
-        })}
+        <div className='flex flex-col p-4 my-10 max-w-3xl mx-auto shadow-md shadow-yellow-500 space-y-2'>
+          <h2 className='text-3xl'>Comments</h2>
+          <hr className='pb-2' />
+          {comments.length > 0  ? '' : <h2 className='text-gray-300'>😢 There are no comments yet... you can be the first!</h2>}
+
+          {comments.map((comment) => {
+            return(
+              <div key={comment.id}>
+                <p>
+                  <span className='text-yellow-500 font-semibold'>{comment.name}: </span>
+                  <span className=''>{comment.content}</span>
+                </p> 
+                  <span className='text-xs text-gray-300'>{comment.createdAt.toLocaleString()}</span>
+              </div>
+            )
+          })}
+          
+        </div>
               
       </main>
       <Footer />
@@ -241,13 +253,13 @@ export const getStaticProps = async ({params}) => {
 
   const comments = await prisma.comment.findMany({
     where: {
-      id: post.id,
+      postId: post.id,
       approved: true
     },
     select: {
       name: true,
       content: true,
-      createdAt: true
+      createdAt: true,
     }
   })
 

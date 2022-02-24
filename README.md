@@ -55,11 +55,11 @@
 - https://codepen.io/brunadafonseca/pen/PxqLMq?editors=1010 slightly better option
 
 ## To Do
-- [o] Render comments
 - [o] Drafts Edit ability
 - [o] Actually pull demo account from the database
 - [o] Upgrade Session to have a username? https://www.youtube.com/watch?v=a6Xs2Ir40OI 3.30.20
 - [o] Fix left,right,center and justify text display
+- [X] Render comments
 - [X] Splash on landing page
 - [X] Drafts not working? import prisma herpderp
 - [X] User Account Page
