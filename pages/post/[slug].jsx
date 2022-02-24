@@ -38,7 +38,7 @@ let options = {
   },
 }
 
-function Post({post}) {
+function Post({post, comments}) {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(false)
 
@@ -80,7 +80,7 @@ function Post({post}) {
           <h2 className='text-xl font-light text-gray-500 mb-2'>{post.description}</h2>
           <div className='flex items-center space-x-2'>
             <img
-              className='h-10 w-10 rounded-full' 
+              className='h-10 w-10 rounded-full object-cover' 
               src={post.author.image}
               alt=""
             />
@@ -99,7 +99,7 @@ function Post({post}) {
           </div>
         </article>
 
-        {/* Comments Section */}
+        {/* Leave a Comment */}
         <div className='max-w-3xl mx-auto my-5 h-[3px] bg-gradient-to-r from-white via-yellow-500 to-white'></div>
 
         
@@ -174,6 +174,17 @@ function Post({post}) {
           </form>
         )}
 
+        {/* Render Comments */}
+        {comments.map((comment, index) => {
+          return(
+            <div key={index}>
+              <p >{comment.name}</p>
+              <p >{comment.content}</p> 
+              <p >{comment.createdAt.toLocaleString()}</p>
+            </div>
+          )
+        })}
+              
       </main>
       <Footer />
     </>
@@ -228,8 +239,20 @@ export const getStaticProps = async ({params}) => {
     return { notFound: true }
   }
 
+  const comments = await prisma.comment.findMany({
+    where: {
+      id: post.id,
+      approved: true
+    },
+    select: {
+      name: true,
+      content: true,
+      createdAt: true
+    }
+  })
+
   return {
-    props: { post },
+    props: { post, comments },
     revalidate: 60, // after 60 seconds it will update the old cache
   }
 }

@@ -1,12 +1,52 @@
 const posts = [
   {
     id: 'ckzywzytm00413svi6jezdk1o',
-    title: 'Elon Musk Plans to Colonize Mars',
+    title: 'SpaceX',
     description: 'Is the future now?',
-    slug: 'elon-mars',
-    content: '{"blocks":[{"key":"fj4u1","text":"Elon Musk Plans to colonize mars by 2025","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}',
-    image: 'https://i.imgur.com/osTjpbV.jpg',
+    slug: 'spacex',
+    content: "{\"blocks\":[{\"key\":\"6q2d3\",\"text\":\"What is Space X?\",\"type\":\"header-one\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"dfgot\",\"text\":\"SpaceX was founded to revolutionize space technology towards making life multiplanetary. \",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"2ulr6\",\"text\":\"SpaceX is the world’s leading provider of launch services and is proud to be the first private company to have delivered astronauts to and from the International Space Station (ISS), and the first and only company to complete an all-civilian crewed mission to orbit.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"faamj\",\"text\":\"Falcon 9\",\"type\":\"header-one\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"988rt\",\"text\":\"Falcon 9 is a reusable, two-stage rocket designed and manufactured by SpaceX for the reliable and safe transport of people and payloads into Earth orbit and beyond. Falcon 9 is the world’s first orbital class reusable rocket. Reusability allows SpaceX to refly the most expensive parts of the rocket, which in turn drives down the cost of space access.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"ahmvk\",\"text\":\" \",\"type\":\"atomic\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[{\"offset\":0,\"length\":1,\"key\":0}],\"data\":{}},{\"key\":\"18ecp\",\"text\":\"Falcon Heavy\",\"type\":\"header-one\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"8esnj\",\"text\":\"Falcon Heavy is the most powerful operational rocket in the world. It has the ability to lift into orbit nearly 64 metric tons (141,000 lb). With more than 5 million pounds of thrust at liftoff, Falcon Heavy is the most capable rocket flying.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"dckpu\",\"text\":\" \",\"type\":\"atomic\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[{\"offset\":0,\"length\":1,\"key\":1}],\"data\":{}},{\"key\":\"ce34p\",\"text\":\"\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"d2f1e\",\"text\":\"Dragon\",\"type\":\"header-one\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"birip\",\"text\":\"The Dragon spacecraft is capable of carrying up to 7 passengers to and from Earth orbit, and beyond. It is the only spacecraft currently flying that is capable of returning significant amounts of cargo to Earth, and is the first private spacecraft to take humans to the space station.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"76oj4\",\"text\":\" \",\"type\":\"atomic\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[{\"offset\":0,\"length\":1,\"key\":2}],\"data\":{}},{\"key\":\"4ojn3\",\"text\":\"\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"aueqn\",\"text\":\"Star Ship\",\"type\":\"header-one\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"192ns\",\"text\":\"SpaceX’s Starship spacecraft  represent a fully reusable transportation system designed to carry both crew and cargo to Earth orbit, the Moon, Mars and beyond (Mars!).\\n\\n Starship will be the world’s most powerful launch vehicle ever developed, with the ability to carry in excess of 100 metric tonnes to Earth orbit.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"6iu7t\",\"text\":\" \",\"type\":\"atomic\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[{\"offset\":0,\"length\":1,\"key\":3}],\"data\":{}},{\"key\":\"6a9gg\",\"text\":\"\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{\"0\":{\"type\":\"IMAGE\",\"mutability\":\"MUTABLE\",\"data\":{\"src\":\"https://i.imgur.com/8iMFRDJ.png\",\"height\":\"auto\",\"width\":\"auto\"}},\"1\":{\"type\":\"IMAGE\",\"mutability\":\"MUTABLE\",\"data\":{\"src\":\"https://i.imgur.com/V559Akd.png\",\"height\":\"auto\",\"width\":\"auto\"}},\"2\":{\"type\":\"IMAGE\",\"mutability\":\"MUTABLE\",\"data\":{\"src\":\"https://i.imgur.com/axRbDYI.png\",\"height\":\"auto\",\"width\":\"auto\"}},\"3\":{\"type\":\"IMAGE\",\"mutability\":\"MUTABLE\",\"data\":{\"src\":\"https://i.imgur.com/Auex2Wn.png\",\"height\":\"auto\",\"width\":\"auto\"}}}}",
+    image: 'https://i.imgur.com/eVr456P.jpg',
     published: true,
+    authorId: '1'
+  },
+  {
+    id: 'cl00ep6zb0005eovi5oym6d8o',
+    title: 'Tesla',
+    description: 'Will self driving cars will fix road rage?',
+    slug: 'tesla',
+    content: '{"blocks":[{"key":"fbmqp","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}',
+    image: 'https://i.imgur.com/tvJh7r3.png',
+    published: true,
+    authorId: '1'
+  },
+  {
+    id: 'cl00195lv00658gviriq5udt2',
+    title: 'Elon Codes?',
+    description: 'Test code blocks',
+    slug: 'elon-codes',
+    content: "{\"blocks\":[{\"key\":\"fmiu0\",\"text\":\"  const submitData = async (e) => {\\n    e.preventDefault();\\n    try {\\n      const body = { title, content, description, image, slug };\\n      await fetch('/api/post/createDraft', {\\n        method: 'POST',\\n        headers: { 'Content-Type': 'application/json' },\\n        body: JSON.stringify(body),\\n      });\\n      await Router.push(`/user/${session?.user.email}/drafts/view-all`);\\n    } catch (err) {\\n      console.error(err);\\n    }\\n  }\",\"type\":\"code\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
+    image: 'https://i.imgur.com/HxtTLpS.jpg',
+    published: true,
+    authorId: '1'
+  },
+  {
+    id: '2',
+    title: 'Elon Musk has Colonized Mars',
+    description: 'Is the future now?',
+    slug: 'colonize-mars',
+    content: '{"blocks":[{"key":"fbmqp","text":"Well he is definitely thinking about it...","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}',
+    image: 'https://i.imgur.com/osTjpbV.jpg',
+    published: false,
+    authorId: '1'
+  },
+  {
+    id: '3',
+    title: 'Boring Company',
+    description: 'Not very interesting',
+    slug: 'boring-company',
+    content: '{"blocks":[{"key":"fbmqp","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}',
+    image: 'https://i.imgur.com/hUuqMzt.png',
+    published: false,
     authorId: '1'
   },
   {
@@ -19,16 +59,7 @@ const posts = [
     published: true,
     authorId: '1'
   },
-  {
-    id: 'cl00195lv00658gviriq5udt2',
-    title: 'Elon Codes?',
-    description: 'Test code blocks',
-    slug: 'elon-codes',
-    content: "{'blocks':[{'key':'1faqa','text':'  const submitData = async (e) => {\n    e.preventDefault();\n    try {\n      const body = { title, content, description, image, slug };\n      await fetch('/api/post/createDraft', {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify(body),\n      });\n      await Router.push(`/user/${session?.user.email}/drafts/view-all`);\n    } catch (err) {\n      console.error(err);\n    }\n  }','type':'code','depth':0,'inlineStyleRanges':[],'entityRanges':[],'data':{}}],'entityMap':{}}'",
-    image: 'https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg',
-    published: true,
-    authorId: '1'
-  },
+
   {
     id: 'ckzzbq1nf000524vi1s1yeeuz',
     title: 'The Power Of Now',

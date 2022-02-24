@@ -4,7 +4,7 @@ import Link from "next/link"
 function Posts({posts}) {
   return (
     <main className='min-h-screen max-w-7xl mx-auto px-5 pt-10'>
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6 p-2 md:pd-6'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:pd-6'>
       {posts.map((post, index) => (
         //Post Display Card
         <Link key={index} href={`/post/${post.slug}`} passHref>
@@ -26,7 +26,7 @@ function Posts({posts}) {
                 <p className='text-xs'>By {post.author.name}</p>
               </div>
                 <img 
-                  className='h-12 w-12 rounded-full'
+                  className='h-12 w-12 rounded-full object-cover'
                   src={post.author.image}
                   alt=''
                 />
